@@ -1,12 +1,12 @@
-import inspect
 import datetime
 import random
 
 class Pug:
-    # Create a PUG with a name, age, home, and time for puppy dinner
+    """Create a PUG with a name, age, home, and time for puppy dinner"""
     
     def __init__(self, name, age, home, puppy_dinner):
-        print(f"Creating a PUG with name: {name}, age: {age}, home: {home}, and puppy dinner: {puppy_dinner}.")
+        print(
+            f"Creating a PUG with name: {name}, age: {age}, home: {home}, and puppy dinner: {puppy_dinner}.")
 
         self.name = name
         self.age = age
@@ -18,24 +18,23 @@ class Pug:
             # If it doesn't work, raise an exception
             
             self.age = int(age)
-
             puppy_dinner_format = '%I:%M %p'
-            self.puppy_dinner = datetime.datetime.strptime(puppy_dinner, puppy_dinner_format).strftime("%H:%M")
-
+            self.puppy_dinner = datetime.datetime.strptime(puppy_dinner,
+            puppy_dinner_format).strftime("%H:%M")
             print("PUG created!")
 
-        except ValueError as e:
-            raise Exception(f"Error creating PUG with name {self.name}: {e}")
+        except ValueError as err:
+            raise ValueError(f"Error creating PUG with name {self.name}: {err}") from err
 
     def describe_pug(self):
-        # Describe the pug
-        # Return a description of the pug
+        """Return a description of the pug"""
+        
         result = f"{self.name} is a pug who is {self.age} years old and lives in {self.home}."
         return result
  
     def check_for_puppy_dinner(self):
-        # Check to see if it's time for puppy dinner
-        # Return the result
+        """Check to see if it's time for puppy dinner
+        and return a string"""
         
         current_time = datetime.datetime.now().strftime("%H:%M")
             
@@ -47,17 +46,24 @@ class Pug:
         return result
     
     def drop_it(self):
-        # Command pug to drop whatever is in their mouth!
+        """Command pug to drop whatever is in their mouth!"""
 
         print("What's in your mouth? Drop it!")
         
-        items = ["slice of pizza", "poisonous house plant leaf", "tennis ball", "greenie", "router plug", "squeaky toy", "trash"]
+        items = ["slice of pizza",
+        "poisonous house plant leaf", 
+        "tennis ball", 
+        "greenie", 
+        "router plug", 
+        "squeaky toy", 
+        "trash"]
         drop_item = random.choice(items)
 
         print("Good dog!")
 
 
 def demo_pug():
+    """Demo the pug class"""
 
     gary = Pug("Gary", "14", "San Francisco", "5:00 PM")
     print(gary.describe_pug())
