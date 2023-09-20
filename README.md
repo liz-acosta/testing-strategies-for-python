@@ -18,4 +18,4 @@ This example code uses Python's [unittest](https://docs.python.org/3/library/uni
 * To execute [coverage](https://coverage.readthedocs.io/en/7.3.1/index.html) on unit tests (using discovery): `python3 -m coverage run -m unittest`
 * To generage a coverage report: `python3 -m coverage report`
 
-![alt text](money-pug.gif)
+![alt text](static/img/money-pug.gif)

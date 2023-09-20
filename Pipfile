@@ -5,6 +5,11 @@ name = "pypi"
 
 [packages]
 coverage = "*"
+flask = "*"
+bootstrap-flask = "*"
+flask-wtf = "*"
+python-dotenv = "*"
+openai = "*"
 
 [dev-packages]
 

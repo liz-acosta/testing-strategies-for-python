@@ -1,0 +1,45 @@
+{% from 'bootstrap5/nav.html' import render_nav_item %}
+{% from 'bootstrap5/utils.html' import render_messages %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Build-a-Pug</title>
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    {{ bootstrap.load_css() }}
+    <style>
+        pre {
+            background: #ddd;
+            padding: 10px;
+        }
+        h2 {
+            margin-top: 20px;
+        }
+        footer {
+            margin: 20px;
+        }
+    </style>
+</head>
+
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+            <div class="container">
+                <a href="../" class="navbar-brand">Build-a-Pug</a>
+            </div>
+        </nav>
+        <!-- Your page content -->
+        <main class="container">
+
+            {% block content %}{% endblock %}
+        </main>
+        <footer class="text-center">
+            {% block footer %}
+                <small> &copy; 2018–<script>document.write(new Date().getFullYear())</script> <a href="https://github.com/greyli">Build-a-Pug</a>
+                </small>
+            {% endblock %}
+        </footer>
+    
+        {{ bootstrap.load_js() }}
+    </body>
+</html>
