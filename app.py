@@ -4,13 +4,13 @@ from flask_wtf import FlaskForm
 from wtforms.fields import *
 from .pug import Pug
 
-class ExampleForm(FlaskForm):
+class PugForm(FlaskForm):
     """An example form that contains all the supported bootstrap style form fields."""
     name = StringField() # will not autocapitalize on mobile
     age = StringField() # will not autocapitalize on mobile
     home = StringField() # will not autocapitalize on mobile
     puppy_dinner = StringField(render_kw={'placeholder': 'e.g. 5:00 PM'}) # will not autocapitalize on mobile
-    submit = SubmitField()
+    submit = SubmitField(render_kw={ 'id': 'form-button', 'onclick': 'showProgressBar()'})
 
 def create_app(configfile=None):
     app = Flask(__name__)
@@ -21,7 +21,7 @@ def create_app(configfile=None):
 
     @app.route("/", methods=['GET', 'POST'])
     def index():
-        form = ExampleForm()
+        form = PugForm()
         if request.method == 'POST' and form.validate():
             pug = Pug(form.name.data, form.age.data, form.home.data, form.puppy_dinner.data)
             pug_description = pug.describe_pug()

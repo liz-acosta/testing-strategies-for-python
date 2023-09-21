@@ -1,16 +1,27 @@
 {% from 'bootstrap5/form.html' import render_form %}
+{% from 'bootstrap4/utils.html' import render_static %}
 
 {% extends 'base.html' %}
 
 {% block content %}
+<script src="{{ url_for('static', filename='js/loading.js') }}"></script>
 <div class="bs-docs-section">
     <div class="row">
         <div class="col-lg-6">
           <div class="bs-component">
             <h1>Welcome to Build-a-Pug!</h1>
             <p class="lead">Fill in the form to build your own pug!</p>
+        
             {{ render_form(form) }}
+          
           </div>
+          
+          <div class="bs-component" id="progress-bar-div" hidden="hidden">
+            <div class="progress">
+              <div class="progress-bar progress-bar-striped progress-bar-animated" id="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 25%;"></div>
+            </div>
+          </div>
+        
         </div>
         <div class="col-lg-6">
             <div class="bs-component">

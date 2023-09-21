@@ -5,6 +5,7 @@ This example code uses Python's [unittest](https://docs.python.org/3/library/uni
 ## Prerequisites
 
 1. Install [pipenv](https://pipenv.pypa.io/en/latest/): `python3 pip install pipenv`
+2. [OpenAI API key and organization](https://openai.com/blog/openai-api)
 
 ## Setup
 

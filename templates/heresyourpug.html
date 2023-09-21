@@ -25,6 +25,7 @@
             <div class="d-grid gap-2">
             {% if puppy_dinner_result is defined %}
             <h2>{{ puppy_dinner_result }}</h2>
+            <a href="{{ url_for('puppy_dinner') }}"><button class="btn btn-lg btn-primary" type="button">Is it time for puppy dinner?</button></a>
             {% else %}
             <a href="{{ url_for('puppy_dinner') }}"><button class="btn btn-lg btn-primary" type="button">Is it time for puppy dinner?</button></a>
             {% endif %}
