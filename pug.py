@@ -87,11 +87,5 @@ def demo_pug():
     print(gary.build_pug())
     gary.drop_it()
 
-    # print("**********")
-    # lily = Pug("Lily", "6", "San Francisco", "5:00")
-
-    # print("**********")
-    # penny = Pug("Penny", "one", "San Francisco", "5:00")
-
 if __name__ == '__main__':
     demo_pug()

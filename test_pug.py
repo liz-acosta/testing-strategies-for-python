@@ -1,4 +1,5 @@
 import unittest
+import datetime
 from unittest.mock import patch
 from pug import Pug
 
@@ -61,21 +62,21 @@ class TestPugWithSetup(unittest.TestCase):
         test_result = self.test_pug.describe_pug()
         self.assertEqual(test_result, expected_result, msg="Test for describe_pug failed")
     
-    @patch('datetime.datetime')
+    @patch('pug.datetime')
     def test_check_for_puppy_dinner(self, mock_datetime):
         """Tests the check_for_puppy_dinner function"""
         
         test_data = [{'case': "Puppy dinner time",
-                      'time': "17:00",
-                      'expected_result': "The current time is 17:00. It is time for puppy dinner!"},
+                      'time': datetime.datetime(2023, 9, 21, 17, 00, 00, 000000),
+                      'expected_result': "The current time is 05:00 PM. It is time for puppy dinner! 😍"},
                       {'case': "Not puppy dinner time",
-                      'time': "16:00",
+                      'time': datetime.datetime(2023, 9, 21, 16, 00, 00, 000000),
                       'expected_result': 
-                      "The current time is 16:00. It is not yet time for puppy dinner."}]
+                      "The current time is 04:00 PM. It is not yet time for puppy dinner 😔"}]
         for data in test_data:
             with self.subTest(msg=data['case']):
-                mock_datetime.now().strftime.return_value = data['time']
-                test_result = self.test_pug.check_for_puppy_dinner()
+                mock_datetime.datetime.now.return_value = data['time']
+                test_result = Pug.check_for_puppy_dinner(self.test_pug.puppy_dinner)
                 self.assertEqual(test_result, data['expected_result'],
                 msg="Test for check_for_puppy_dinner failed")
 
@@ -84,7 +85,16 @@ class TestPugWithSetup(unittest.TestCase):
 
         for i in range(5):
             self.test_pug.drop_it()
+    
+    @patch('pug.openai.Image')
+    def test_build_pug(self, mock_openai):
 
+        mock_openai_response = {'data':[{'url': 'https://ai-generated-pug'}]}
+        mock_openai.create.return_value = mock_openai_response
+        
+        expected_result = 'https://ai-generated-pug'
+        test_result = self.test_pug.build_pug()
+        self.assertEqual(test_result, expected_result, msg="Test for build_pug failed")
 
 if __name__ == '__main__':
     unittest.main()
