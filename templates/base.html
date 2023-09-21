@@ -3,6 +3,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -24,25 +25,23 @@
     </style>
 </head>
 
-    <body>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
-            <div class="container">
-                <a href="../" class="navbar-brand">Build-a-Pug</a>
-            </div>
-        </nav>
-        
-        <!-- Your page content -->
-        <main class="container">
-            {% block content %}{% endblock %} 
-        </main>
-        
-        <footer class="text-center">
-            {% block footer %}
-                <small> &copy; 2018–<script>document.write(new Date().getFullYear())</script> <a href="https://github.com/greyli">Build-a-Pug</a>
-                </small>
-            {% endblock %}
-        </footer>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+        <div class="container">
+            <a href="../" class="navbar-brand">Build-a-Pug</a>
+        </div>
+    </nav>
     
+    <main class="container">
+        {% block content %}{% endblock %} 
+    </main>
+    
+    <footer class="text-center">
+        {% block footer %}
+            <small> &copy; 2018–<script>document.write(new Date().getFullYear())</script> <a href="https://github.com/greyli">Build-a-Pug</a>
+            </small>
+        {% endblock %}
+    </footer>
+</body>
 
-    </body>
 </html>

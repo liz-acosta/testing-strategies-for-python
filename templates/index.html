@@ -5,29 +5,29 @@
 
 {% block content %}
 <script src="{{ url_for('static', filename='js/loading.js') }}"></script>
+
 <div class="bs-docs-section">
-    <div class="row">
-        <div class="col-lg-6">
-          <div class="bs-component">
-            <h1>Welcome to Build-a-Pug!</h1>
-            <p class="lead">Fill in the form to build your own pug!</p>
-        
-            {{ render_form(form) }}
+  <div class="row">
+    <div class="col-lg-6">
+      <div class="bs-component">
+        <h1>Welcome to Build-a-Pug!</h1>
+        <p class="lead">Fill in the form to build your own pug!</p>
+        {{ render_form(form) }}    
+      </div>
           
-          </div>
-          
-          <div class="bs-component" id="progress-bar-div" hidden="hidden">
-            <div class="progress">
-              <div class="progress-bar progress-bar-striped progress-bar-animated" id="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 25%;"></div>
-            </div>
-          </div>
-        
+      <div class="bs-component" id="progress-bar-div" hidden="hidden">
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped progress-bar-animated" id="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 25%;"></div>
         </div>
-        <div class="col-lg-6">
-            <div class="bs-component">
-              <img src="static/img/index-pug@300x.png" class="img-fluid" style="max-width: 50%; height: auto">
-            </div>
-          </div>
-     </div>
+      </div>
+    </div>
+    
+    <div class="col-lg-6">
+      <div class="bs-component">
+        <img src="static/img/index-pug@300x.png" class="img-fluid" style="max-width: 50%; height: auto">
+      </div>
+    </div>
+  </div>
 </div>
+
 {% endblock %}

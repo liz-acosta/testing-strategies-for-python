@@ -3,37 +3,41 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="bs-docs-section">
-    <div class="row">
-        <div class="col-lg-6">
-          <div class="bs-component">
-            <h1>Here is your pug!</h1>
-          </div>
-        </div>
-    </div>
 
-    
-      <div class="row">
-              <div class="col-lg-6">
-                <div class="bs-component">
-            <p class="lead">{{ pug_description }}</p>
-            <img src="{{ pug_image }}" class="img-fluid" style="max-width: 70%; height: auto">
-          </div>
+<div class="bs-docs-section">
+  <div class="row">
+      <div class="col-lg-6">
+        <div class="bs-component">
+          <h1>Here is your pug!</h1>
         </div>
-        <div class="col-lg-6">
-          <div class="bs-component">
-            <div class="d-grid gap-2">
-            {% if puppy_dinner_result is defined %}
+      </div>
+  </div>
+
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="bs-component">
+          <p class="lead">{{ pug_description }}</p>
+          <img src="{{ pug_image }}" class="img-fluid" style="max-width: 70%; height: auto">
+        </div>
+      </div>
+      
+    <div class="col-lg-6">
+      <div class="bs-component">
+        <div class="d-grid gap-2">
+            
+          {% if puppy_dinner_result is defined %}
             <h2>{{ puppy_dinner_result }}</h2>
             <a href="{{ url_for('puppy_dinner') }}"><button class="btn btn-lg btn-primary" type="button">Is it time for puppy dinner?</button></a>
-            {% else %}
+          {% else %}
             <a href="{{ url_for('puppy_dinner') }}"><button class="btn btn-lg btn-primary" type="button">Is it time for puppy dinner?</button></a>
-            {% endif %}
+          {% endif %}
+              
             <a href="{{ url_for('index') }}"><button class="btn btn-lg btn-primary" type="button">Build a new pug!</button></a>
-          </div>
-          </div>
         </div>
-        
-     </div>
+      </div>
+    </div>
+      
+  </div>
 </div>
+
 {% endblock %}
