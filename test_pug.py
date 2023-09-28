@@ -3,6 +3,7 @@ import datetime
 from unittest.mock import patch
 from pug import Pug
 
+
 class TestPug(unittest.TestCase):
     """Test Class for Class Pug"""
  
@@ -62,6 +63,16 @@ class TestPugWithSetup(unittest.TestCase):
         test_result = self.test_pug.describe_pug()
         self.assertEqual(test_result, expected_result, msg="Test for describe_pug failed")
     
+    @patch('pug.openai.Image')
+    def test_build_pug(self, mock_openai):
+
+        mock_openai_response = {'data':[{'url': 'https://ai-generated-pug'}]}
+        mock_openai.create.return_value = mock_openai_response
+        
+        expected_result = 'https://ai-generated-pug'
+        test_result = self.test_pug.build_pug()
+        self.assertEqual(test_result, expected_result, msg="Test for build_pug failed")
+    
     @patch('pug.datetime')
     def test_check_for_puppy_dinner(self, mock_datetime):
         """Tests the check_for_puppy_dinner function"""
@@ -85,16 +96,7 @@ class TestPugWithSetup(unittest.TestCase):
 
         for i in range(5):
             self.test_pug.drop_it()
-    
-    @patch('pug.openai.Image')
-    def test_build_pug(self, mock_openai):
 
-        mock_openai_response = {'data':[{'url': 'https://ai-generated-pug'}]}
-        mock_openai.create.return_value = mock_openai_response
-        
-        expected_result = 'https://ai-generated-pug'
-        test_result = self.test_pug.build_pug()
-        self.assertEqual(test_result, expected_result, msg="Test for build_pug failed")
 
 if __name__ == '__main__':
     unittest.main()

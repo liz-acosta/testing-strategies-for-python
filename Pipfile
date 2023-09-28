@@ -15,3 +15,8 @@ openai = "*"
 
 [requires]
 python_version = "3.11"
+
+[scripts]
+test-pug-class = "python3 -m unittest test_pug.TestPug.test_pug_instance_successful"
+test-parameterization = "python3 -m unittest test_pug.TestPug.test_pug_instance_exceptions"
+test-mocking = "python3 -m unittest test_pug.TestPugWithSetup.test_build_pug test_pug.TestPugWithSetup.test_check_for_puppy_dinner"

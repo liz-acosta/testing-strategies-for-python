@@ -1,6 +1,7 @@
 from flask_wtf import FlaskForm
 from wtforms.fields import *
 
+
 class PugForm(FlaskForm):
     """An example form that contains all the supported bootstrap style form fields."""
     name = StringField() # will not autocapitalize on mobile
@@ -9,7 +10,10 @@ class PugForm(FlaskForm):
     puppy_dinner = StringField(render_kw={'placeholder': 'e.g. 5:00 PM'}) # will not autocapitalize on mobile
     submit = SubmitField(render_kw={ 'id': 'form-button', 'onclick': 'showProgressBar()'})
 
+
 class FormError(Exception):
+    """A form error."""
+
     status_code = 400
 
     def __init__(self, message, status_code=None, payload=None):

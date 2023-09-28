@@ -4,10 +4,11 @@ import openai
 from dotenv import load_dotenv
 import os
 
+# Load secrets from .env file
 load_dotenv()
-
 OPENAI_KEY = os.getenv("OPENAI_KEY")
 OPENAI_ORGANIZATION = os.getenv("OPENAI_ORGANIZATION")
+
 
 class Pug:
     """Create a PUG with a name, age, home, and time for puppy dinner"""
@@ -39,6 +40,18 @@ class Pug:
         
         result = f"{self.name} is a pug who is {self.age} years old and lives in {self.home}."
         return result
+
+    def build_pug(self):
+
+        pug_description = self.describe_pug()
+
+        pug_prompt = f"A cute photo of {self.name}. {pug_description}."
+
+        openai.api_key = OPENAI_KEY
+        openai.organization = OPENAI_ORGANIZATION
+        response = openai.Image.create(prompt=pug_prompt, n=1, size='1024x1024')
+        image_url = response['data'][0]['url']
+        return image_url
  
     @staticmethod
     def check_for_puppy_dinner(puppy_dinner):
@@ -68,15 +81,6 @@ class Pug:
 
         print("Good dog!")
     
-    def build_pug(self):
-
-        pug_prompt = f"A cute photo of {self.name} the pug who is {self.age} years old and lives in {self.home}."
-
-        openai.api_key = OPENAI_KEY
-        openai.organization = OPENAI_ORGANIZATION
-        response = openai.Image.create(prompt=pug_prompt, n=1, size='1024x1024')
-        image_url = response['data'][0]['url']
-        return image_url
 
 def demo_pug():
     """Demo the pug class"""
@@ -86,6 +90,7 @@ def demo_pug():
     print(gary.check_for_puppy_dinner(gary.puppy_dinner))
     print(gary.build_pug())
     gary.drop_it()
+
 
 if __name__ == '__main__':
     demo_pug()
