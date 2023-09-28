@@ -4,22 +4,24 @@ This example code uses Python's [unittest](https://docs.python.org/3/library/uni
 
 ## Prerequisites
 
-1. Install [pipenv](https://pipenv.pypa.io/en/latest/): `python3 pip install pipenv`
+1. Install [pipenv](https://pipenv.pypa.io/en/latest/): `pip install pipenv --user`
 2. [OpenAI API key and organization](https://openai.com/blog/openai-api)
+3. Python 3+
 
 ## Setup
 
 1. Activate virtual environment: `pipenv shell`
 2. Install dependencies from Pipfile.lock: `pipenv install`
-3. (Deactivate virtual environment: `exit`)
-4. [Add environment variables](https://pypi.org/project/python-dotenv/#getting-started) by renaming `.env_template` to `.env`
-5. And replacing placeholder secrets with real secrets
+3. [Add environment variables](https://pypi.org/project/python-dotenv/#getting-started) by renaming `.env_template` to `.env`
+4. ... and replacing placeholder secrets with real secrets
+5. (Deactivate virtual environment: `exit`)
 
 ## Run tests
 
-* To [discover](https://docs.python.org/3/library/unittest.html?highlight=discover#unittest.TestLoader.discover) and run the tests: `python3 -m unittest`
-* To execute [coverage](https://coverage.readthedocs.io/en/7.3.1/index.html) on unit tests (using discovery): `python3 -m coverage run -m unittest`
-* To generage a coverage report: `python3 -m coverage report`
+* To [discover](https://docs.python.org/3/library/unittest.html?highlight=discover#unittest.TestLoader.discover) and run the tests: `pipenv run tests`
+* To execute a [coverage](https://coverage.readthedocs.io/en/7.3.1/index.html) static code analysis: `pipenv run coverage-analysis`
+* To generage a coverage report: `pipenv run coverage-report`
+* (See all available pipenv scripts: `pipenv scripts`)
 
 ## Run locally
 
