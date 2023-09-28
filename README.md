@@ -12,7 +12,7 @@ This example code uses Python's [unittest](https://docs.python.org/3/library/uni
 
 1. Activate virtual environment: `pipenv shell`
 2. Install dependencies from Pipfile.lock: `pipenv install`
-3. [Add environment variables](https://pypi.org/project/python-dotenv/#getting-started) by renaming `.env_template` to `.env`
+3. [Add environment variables](https://pypi.org/project/python-dotenv/#getting-started) by renaming `.env_template` to `.env` ...
 4. ... and replacing placeholder secrets with real secrets
 5. (Deactivate virtual environment: `exit`)
 
