@@ -1,16 +1,9 @@
-from flask import Flask, render_template, request, redirect, url_for, session
+from flask import Flask, render_template, request, redirect, url_for, session, jsonify
 from flask_bootstrap import Bootstrap5
 from flask_wtf import FlaskForm
 from wtforms.fields import *
 from .pug import Pug
-
-class PugForm(FlaskForm):
-    """An example form that contains all the supported bootstrap style form fields."""
-    name = StringField() # will not autocapitalize on mobile
-    age = StringField() # will not autocapitalize on mobile
-    home = StringField() # will not autocapitalize on mobile
-    puppy_dinner = StringField(render_kw={'placeholder': 'e.g. 5:00 PM'}) # will not autocapitalize on mobile
-    submit = SubmitField(render_kw={ 'id': 'form-button', 'onclick': 'showProgressBar()'})
+from .form import PugForm, FormError
 
 def create_app(configfile=None):
     app = Flask(__name__)
@@ -19,18 +12,27 @@ def create_app(configfile=None):
     app.config['BOOTSTRAP_BOOTSWATCH_THEME'] = 'minty'
     app.config.from_pyfile('settings.py')
 
+    @app.errorhandler(FormError)
+    def invalid_api_usage(e):
+        error_message = e.to_dict()
+        return render_template("formerror.html", error_message=error_message)
+
     @app.route("/", methods=['GET', 'POST'])
     def index():
         form = PugForm()
-        if request.method == 'POST' and form.validate():
-            pug = Pug(form.name.data, form.age.data, form.home.data, form.puppy_dinner.data)
-            pug_description = pug.describe_pug()
-            pug_image = pug.build_pug()
-            session['pug_description'] = pug_description
-            session['pug_image'] = pug_image
-            session['puppy_dinner'] = pug.puppy_dinner
-
-            return redirect(url_for('heres_your_pug'))
+        try:
+            if request.method == 'POST' and form.validate():
+                pug = Pug(form.name.data, form.age.data, form.home.data, form.puppy_dinner.data)
+                pug_description = pug.describe_pug()
+                pug_image = pug.build_pug()
+                session['pug_description'] = pug_description
+                session['pug_image'] = pug_image
+                session['puppy_dinner'] = pug.puppy_dinner
+                
+                return redirect(url_for('heres_your_pug'))  
+        except ValueError as err:
+            raise FormError(err.args[0])
+        
         return render_template('index.html', form=form)
     
     @app.route("/heresyourpug", methods=['GET', 'POST'])
