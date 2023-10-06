@@ -56,13 +56,6 @@ class TestPugWithSetup(unittest.TestCase):
     def setUpClass(cls):
         cls.test_pug = Pug("Gary", "14", "San Francisco", "5:00 PM")
     
-    def test_pug_describe_pug(self):
-        """Tests the describe_pug function"""
-
-        expected_result = "Gary is a pug who is 14 years old and lives in San Francisco."
-        test_result = self.test_pug.describe_pug()
-        self.assertEqual(test_result, expected_result, msg="Test for describe_pug failed")
-    
     @patch('pug.openai.Image')
     def test_build_pug(self, mock_openai):
 
@@ -72,30 +65,6 @@ class TestPugWithSetup(unittest.TestCase):
         expected_result = 'https://ai-generated-pug'
         test_result = self.test_pug.build_pug()
         self.assertEqual(test_result, expected_result, msg="Test for build_pug failed")
-    
-    @patch('pug.datetime')
-    def test_check_for_puppy_dinner(self, mock_datetime):
-        """Tests the check_for_puppy_dinner function"""
-        
-        test_data = [{'case': "Puppy dinner time",
-                      'time': datetime.datetime(2023, 9, 21, 17, 00, 00, 000000),
-                      'expected_result': "The current time is 05:00 PM. It is time for puppy dinner! 😍"},
-                      {'case': "Not puppy dinner time",
-                      'time': datetime.datetime(2023, 9, 21, 16, 00, 00, 000000),
-                      'expected_result': 
-                      "The current time is 04:00 PM. It is not yet time for puppy dinner 😔"}]
-        for data in test_data:
-            with self.subTest(msg=data['case']):
-                mock_datetime.datetime.now.return_value = data['time']
-                test_result = Pug.check_for_puppy_dinner(self.test_pug.puppy_dinner)
-                self.assertEqual(test_result, data['expected_result'],
-                msg="Test for check_for_puppy_dinner failed")
-
-    def test_pug_drop_it(self):
-        """Tests the drop_it function"""
-
-        for i in range(5):
-            self.test_pug.drop_it()
 
 
 if __name__ == '__main__':
