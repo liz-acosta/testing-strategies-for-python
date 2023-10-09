@@ -33,5 +33,9 @@ It should look like this:
 
 ![alt text](static/img/build-a-pug_screenshot.png)
 
+## Resources
+
+* [Slide deck from PyBay 2023, 8 October 2023, San Francisco, CA](resources/202310_slide-deck_pybay-testing-strategies-for-python.pdf)
+
 ## Enjoy!
 ![alt text](static/img/money-pug.gif)
