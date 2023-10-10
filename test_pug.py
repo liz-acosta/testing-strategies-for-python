@@ -73,10 +73,16 @@ class TestPugWithSetup(unittest.TestCase):
         test_result = self.test_pug.build_pug()
         self.assertEqual(test_result, expected_result, msg="Test for build_pug failed")
     
+    # subTest demo
     @patch('pug.datetime')
     def test_check_for_puppy_dinner(self, mock_datetime):
         """Tests the check_for_puppy_dinner function"""
         
+        
+        # The following is a list of data for the test to iterate through such that:
+        # {'case': <Test case message to display when a subtest fails>,
+        # 'time': <A datetime object to be used as the return value for a mocked datetime.now() method>,
+        # 'expected_result': <The expected result to assert on>}
         test_data = [{'case': "Puppy dinner time",
                       'time': datetime.datetime(2023, 9, 21, 17, 00, 00, 000000),
                       'expected_result': "The current time is 05:00 PM. It is time for puppy dinner! 😍"},
@@ -84,10 +90,70 @@ class TestPugWithSetup(unittest.TestCase):
                       'time': datetime.datetime(2023, 9, 21, 16, 00, 00, 000000),
                       'expected_result': 
                       "The current time is 04:00 PM. It is not yet time for puppy dinner 😔"}]
+
+        # TODO: Uncomment the test data below to make the test fail
+        # test_data = [{'case': "Puppy dinner time",
+        #               'time': datetime.datetime(2023, 9, 21, 17, 00, 00, 000000),
+        #               'expected_result': "Intentional failure data"},
+        #               {'case': "Not puppy dinner time",
+        #               'time': datetime.datetime(2023, 9, 21, 16, 00, 00, 000000),
+        #               'expected_result': 
+        #               "The current time is 04:00 PM. It is not yet time for puppy dinner 😔"}] 
+        
+        # Iterate through the test data using subTest:
+        # 1. Assert on results when it is time for puppy dinner
+        # 2. Assert on results when it is NOT time for puppy dinner
         for data in test_data:
             with self.subTest(msg=data['case']):
+                
+                # Set return_value for mocked datetime.now() method
                 mock_datetime.datetime.now.return_value = data['time']
+                
+                # Perform the test
                 test_result = Pug.check_for_puppy_dinner(self.test_pug.puppy_dinner)
+                
+                # Assert the rest result matches the expected result  
+                self.assertEqual(test_result, data['expected_result'],
+                msg="Test for check_for_puppy_dinner failed")
+
+    # subTest demo
+    @patch('pug.datetime')
+    def test_check_for_puppy_dinner_without_subtest(self, mock_datetime):
+        """Tests the check_for_puppy_dinner function"""
+        
+        # The following is a list of data for the test to iterate through such that:
+        # {'case': <Test case message to display when a subtest fails>,
+        # 'time': <A datetime object to be used as the return value for a mocked datetime.now() method>,
+        # 'expected_result': <The expected result to assert on>}
+        test_data = [{'case': "Puppy dinner time",
+                      'time': datetime.datetime(2023, 9, 21, 17, 00, 00, 000000),
+                      'expected_result': "The current time is 05:00 PM. It is time for puppy dinner! 😍"},
+                      {'case': "Not puppy dinner time",
+                      'time': datetime.datetime(2023, 9, 21, 16, 00, 00, 000000),
+                      'expected_result': 
+                      "The current time is 04:00 PM. It is not yet time for puppy dinner 😔"}]
+
+        # TODO: Uncomment the test data below to make the test fail
+        # test_data = [{'case': "Puppy dinner time",
+        #               'time': datetime.datetime(2023, 9, 21, 17, 00, 00, 000000),
+        #               'expected_result': "Intentional failure data"},
+        #               {'case': "Not puppy dinner time",
+        #               'time': datetime.datetime(2023, 9, 21, 16, 00, 00, 000000),
+        #               'expected_result': 
+        #               "The current time is 04:00 PM. It is not yet time for puppy dinner 😔"}] 
+        
+        # Iterate through the test data without subTest:
+        # 1. Assert on results when it is time for puppy dinner
+        # 2. Assert on results when it is NOT time for puppy dinner
+        for data in test_data:
+                
+                # Set return_value for mocked datetime.now() method
+                mock_datetime.datetime.now.return_value = data['time']
+                
+                # Perform the test
+                test_result = Pug.check_for_puppy_dinner(self.test_pug.puppy_dinner)
+                
+                # Assert the rest result matches the expected result  
                 self.assertEqual(test_result, data['expected_result'],
                 msg="Test for check_for_puppy_dinner failed")
 
