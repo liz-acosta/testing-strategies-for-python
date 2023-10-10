@@ -36,6 +36,7 @@ It should look like this:
 ## Resources
 
 * [Slide deck from PyBay 2023, 8 October 2023, San Francisco, CA](resources/202310_slide-deck_pybay-testing-strategies-for-python.pdf)
+* [Using Python’s Built-in Tools for Unit Test Parameterization: A closer look at unittest subTest()](https://dev.to/lizzzzz/using-pythons-builtin-tools-for-unit-test-parameterization-a-closer-look-at-unittest-subtest-12ca)
 
 ## Enjoy!
 ![alt text](static/img/money-pug.gif)
