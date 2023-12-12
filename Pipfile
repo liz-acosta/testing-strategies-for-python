@@ -10,6 +10,7 @@ bootstrap-flask = "*"
 flask-wtf = "*"
 python-dotenv = "*"
 openai = "*"
+flask-sqlalchemy = "*"
 
 [dev-packages]
 
