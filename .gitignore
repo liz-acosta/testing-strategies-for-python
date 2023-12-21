@@ -1,6 +1,5 @@
 .coverage
 .env
 .DS_Store
-.vscode
 
 *.pyc
