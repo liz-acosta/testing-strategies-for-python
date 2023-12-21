@@ -1,5 +1,3 @@
-import os
-
 from flask import Flask, render_template, request, redirect, url_for, session, jsonify
 from flask_bootstrap import Bootstrap5
 from flask_wtf import FlaskForm
@@ -7,36 +5,12 @@ from wtforms.fields import *
 from .pug import Pug
 from .form import PugForm, FormError
 
-from flask_sqlalchemy import SQLAlchemy
-
-from sqlalchemy.sql import func
-
-basedir = os.path.abspath(os.path.dirname(__file__))
-
-class Pug(db.Model):
-    id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(100), nullable=False)
-    age = db.Column(db.Integer, nullable=False)
-    home = db.Column(db.String(100), unique=True, nullable=False)
-    puppy_dinner = db.Column(b.DateTime(timezone=True))
-    created_at = db.Column(db.DateTime(timezone=True),
-                           server_default=func.now())
-    image = db.Column(db.Text)
-
-    def __repr__(self):
-        return f'<Pug {self.name}>'
-
 def create_app(configfile=None):
     app = Flask(__name__)
     bootstrap = Bootstrap5(app)
-    app.config['SQLALCHEMY_DATABASE_URI'] =\
-        'sqlite:///' + os.path.join(basedir, 'database.db')
-    app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
     app.config['SECRET_KEY'] = 'any secret string'
     app.config['BOOTSTRAP_BOOTSWATCH_THEME'] = 'minty'
     app.config.from_pyfile('settings.py')
-    db = SQLAlchemy(app)
-    
 
     @app.errorhandler(FormError)
     def invalid_api_usage(e):
