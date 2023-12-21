@@ -8,7 +8,7 @@ class TestPug(unittest.TestCase):
     """Test Class for Class Pug"""
  
     def test_pug_instance_successful(self):
-        """Tests if the instatiation of a class Pug is successful"""
+        """Tests if the instance of a class Pug is successful"""
 
         test_result = Pug("Gary", "14", "San Francisco", "5:00 PM")
         test_data = [{'test_result': test_result.name,
@@ -23,7 +23,7 @@ class TestPug(unittest.TestCase):
             self.assertEqual(data['test_result'], data['expected_result'])
     
     def test_pug_instance_exceptions(self):
-        """Tests if the instatiation of a class Pug results in the correct exception"""
+        """Tests if the instance of a class Pug results in the correct exception"""
         
         test_data = [{'case': "Invalid age",
                       'name': "Gary",
