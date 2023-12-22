@@ -2,7 +2,12 @@ import unittest
 import datetime
 from unittest.mock import patch
 from pug import Pug
+from dotenv import load_dotenv
+import os
 
+# Load variables from .env file
+load_dotenv()
+TEST_INTEGRATION = os.getenv("TEST_INTEGRATION")
 
 class TestPug(unittest.TestCase):
     """Test Class for Class Pug"""
@@ -62,6 +67,14 @@ class TestPugWithSetup(unittest.TestCase):
         expected_result = "Gary is a pug who is 14 years old and lives in San Francisco."
         test_result = self.test_pug.describe_pug()
         self.assertEqual(test_result, expected_result, msg="Test for describe_pug failed")
+    
+    @unittest.skipUnless(TEST_INTEGRATION, f"Skipping because TEST_INTEGRATION set to {TEST_INTEGRATION}")
+    def test_build_pug_with_real_api(self):
+        
+        expected_result = 'https://ai-generated-pug'
+        print(self.test_pug.describe_pug())
+        test_result = self.test_pug.build_pug()
+        self.assertEqual(test_result, expected_result, msg="Test for build_pug failed")
     
     @patch('pug.openai.Image')
     def test_build_pug(self, mock_openai):

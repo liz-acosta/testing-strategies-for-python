@@ -1,12 +1,12 @@
 import datetime
 import random
-import openai
+from openai import OpenAI
 from dotenv import load_dotenv
 import os
 
 # Load secrets from .env file
 load_dotenv()
-OPENAI_KEY = os.getenv("OPENAI_KEY")
+OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
 OPENAI_ORGANIZATION = os.getenv("OPENAI_ORGANIZATION")
 
 
@@ -47,10 +47,14 @@ class Pug:
 
         pug_prompt = f"A cute photo of {self.name}. {pug_description}."
 
-        openai.api_key = OPENAI_KEY
-        openai.organization = OPENAI_ORGANIZATION
-        response = openai.Image.create(prompt=pug_prompt, n=1, size='1024x1024')
-        image_url = response['data'][0]['url']
+        client = OpenAI()
+        response = client.images.generate(
+            model="dall-e-3",
+            prompt=pug_prompt,
+            size='1024x1024',
+            quality='standard',
+            n=1)
+        image_url = response.data[0].url
         return image_url
  
     @staticmethod

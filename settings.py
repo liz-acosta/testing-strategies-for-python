@@ -1,4 +1,5 @@
 from os import environ 
 
-OPENAI_KEY = environ.get('OPENAI_KEY')
+OPENAI_API_KEY = environ.get('OPENAI_API_KEY')
 OPENAI_ORGANIZATION = environ.get('OPENAI_ORGANIZATION')
+TEST_INTEGRATION = environ.get('TEST_INTEGRATION')
