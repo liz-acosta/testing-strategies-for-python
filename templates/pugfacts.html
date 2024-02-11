@@ -1,0 +1,29 @@
+{% from 'bootstrap5/form.html' import render_form %}
+{% from 'bootstrap4/utils.html' import render_static %}
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="bs-docs-section">
+  <div class="row">
+      <div class="col-lg-6">
+        <div class="bs-component">
+          <h1>Facts about the pug</h1>
+        </div>
+      </div>
+  </div>
+
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="bs-component">
+          <p class="lead">{{ pug_breed_facts.description }}</p>
+          <img src="static/img/pug-stock-photo.jpeg" class="img-fluid" style="max-width: 50%; height: auto">
+        </div>
+      </div>
+    
+      
+  </div>
+</div>
+
+{% endblock %}
