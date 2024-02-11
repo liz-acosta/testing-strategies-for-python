@@ -1,0 +1,1368 @@
+// {
+//     "data": [
+//       {
+//         "id": "8000793f-a1ae-4ec4-8d55-ef83f1f644e5",
+//         "type": "group",
+//         "attributes": {
+//           "name": "Foundation Stock Service"
+//         },
+//         "relationships": {
+//           "breeds": {
+//             "data": [
+//               {
+//                 "id": "68f47c5a-5115-47cd-9849-e45d3c378f12",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "30f62219-e225-42cd-bd07-02425f944c07",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "087979f3-1c45-4d8a-a153-462bf5ea379e",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "dbff689b-8370-4b6a-9306-215aba549102",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "399c6552-7b4f-418c-a3cc-951cf6752a2e",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "112c4528-17e4-4e35-bcc3-706340d26d04",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "4348208f-eb27-480f-bf3a-3f7c6b5de312",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "8a78ce08-b3ae-4db0-9048-1354cddb7450",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "caf69af9-6fcb-4fb2-a543-d930513ac22a",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "c500abe0-0ee1-4209-9767-08cc03e6abdf",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "1d18a7b3-ce08-41bb-a573-a99f89fb14f1",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "44d9d8b1-184c-4ba8-84f1-c2cf582f9a95",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "c5b9b358-3237-48f3-ad12-7e1e8c0594ef",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "aecc4be6-63e1-401c-acf9-55f3dd5202e0",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "fc47d849-11a9-4a93-af90-c5ff054a20f3",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "2adf5a19-028d-4993-8044-4571008b6d49",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "e855abe2-1a95-43e2-9323-13675cfcb041",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "112035a1-3ec1-4fd2-80c7-2fb96936ddec",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "c69ce556-3d9b-4546-98b1-76c27121115e",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "667c7359-a739-4f2b-abb4-98867671e375",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "5911839f-8018-483e-9008-c2be65c637a2",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "0092363c-abcf-436e-8012-40b66cb8d2c8",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "27b8b673-5caa-4563-add8-8527a5c3762e",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "b56e4273-9ec0-4274-831d-b238225f8fb6",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "cb71135b-596c-4943-892a-d0757da0297e",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "75d3913b-d716-405e-b07b-081e40ba89d0",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "c6b12b96-9f53-445b-8f3e-bf867c761dca",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "6e04f700-c307-4dd5-8d2f-fd346d949cd6",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "26fa8a54-2555-49f3-8d04-90ff84764295",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "e276b208-3b97-4b3f-ab99-5d083e8a50d6",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "bcb5c498-8585-4f4d-b45b-f1931752ee4a",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "661e6c1f-2185-4e04-aa55-b2326172e233",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "3652f545-c185-4095-be91-277b3f1bd672",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "cc82182f-5a9e-4bf3-a46a-a2074837bc4e",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "a07fe528-55e8-417a-8bc0-4803e426e82a",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "dcd92616-487b-4776-8a0d-060d4ba9c021",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "a864f5b7-1b1e-4e9c-9e2f-ef832605d5eb",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "7b1fef86-3fa7-4dd0-92d2-8d7a5524e844",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "937f2454-44f4-4a1d-b938-cdcd5d930b20",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "c5926f0a-c5f5-47b0-888a-2e949694e810",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "c24ba2fd-3fb2-49e9-b95e-748dc4d1196c",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "c30c7a54-dd12-4b75-bdd5-5489ab68f0cf",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "05cfc7f3-c2e6-426c-a245-818a89a7d3f6",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "5432b628-6039-4dcb-adf5-5ddd774fe986",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "d122ef48-4840-4e30-beee-24ccb6bf3a46",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "13d39af7-290b-4e8f-923b-4af0c93be1d3",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "7fb7638f-861f-40d8-8277-69a87a48de5e",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "f72528b5-a5d7-4a17-b709-aba2db722307",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "914840ee-b091-4a9f-b827-099da31b4024",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "8a2994b0-4868-4e2c-824e-56fcd8200e84",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "a220a1fa-ce93-423f-b426-59c681024ef8",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "c052b615-9502-407f-b46a-845d246d9f22",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "066e3871-bb5e-493f-9cd6-ccbf2a79c69f",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "15e35786-3ff3-4f59-87eb-d9dd84a29d07",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "c6f77a4c-f515-4e67-9a26-3ed5ba4a8274",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "ed4e6095-eaf9-4e93-9736-705fbcf2ce68",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "a9d55c39-c2e0-4d55-884c-e2cf7c122e21",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "052684bc-a484-4f29-b953-d5ccf6a3d5e6",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "553ed85b-84e5-481d-919c-bde4250ef1fb",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "0b8a1e9e-bd7f-4382-be78-be3d4429294a",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "9b1bc137-68fe-4e7a-8b7f-3ae5481de7c2",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "8d8acfdf-54a9-46fa-a5e6-e5d1ed3c7528",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "872b77e4-f955-43cd-a22a-880274e37844",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "9926cd59-5614-4a14-91bd-d09959916bc4",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "577b0776-4c05-4ce3-9014-886641c31141",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "e2d26edb-5af4-432e-a731-d72b90cbc55e",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "406e8454-d350-4187-9788-6d857ee52e06",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "caaa1a51-e60b-4192-ad2f-d7237b71ff40",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "f995e320-df67-4ee0-9acb-ace150c5d3da",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "bc97ff27-930e-4d3a-95a8-5a8f2ad4c0e2",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "5462fedb-7f80-49c5-98c3-8ce3207e7d03",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "3fb566ec-ed2b-4ede-8d9e-0155e3eeccb3",
+//                 "type": "breed"
+//               }
+//             ]
+//           }
+//         }
+//       },
+//       {
+//         "id": "b8e4e89d-057f-432a-9e58-0b85b29b693c",
+//         "type": "group",
+//         "attributes": {
+//           "name": "Herding Group"
+//         },
+//         "relationships": {
+//           "breeds": {
+//             "data": [
+//               {
+//                 "id": "4ddbe251-72af-495e-8e9d-869217e1d92a",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "20b1d8be-ae44-4a70-8526-0612904bc9b2",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "d7489e81-94be-4aa4-a87f-229c3cf7c7be",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "169f3d91-4430-452e-8dac-8399286444d8",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "947a92b5-0d27-460a-aa18-f15643f39f63",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "74a2d74a-48a3-4281-a473-abfcd59a0d60",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "2a4b364b-ec99-467c-b86c-516415601771",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "dd5f256c-c3b7-4b97-ae32-55d7eadf3560",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "9fbbf2a2-02b2-4e66-982b-5784648a18e5",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "03269b7d-c5d6-4a8f-83d1-7a6180d40127",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "11211700-695c-42c0-97ae-52ec05961e34",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "ece72a1b-d6e1-4e2c-b3b3-04f9b534336d",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "6b57d7c1-553d-4f46-b33b-c9c5a3a67c96",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "84070958-0e6d-46e8-8c20-ee8b4f136b78",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "62c29679-0420-4de6-ab88-2b3e99c22317",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "3bf9ff15-c5ac-41d4-8266-2e0fe48329d3",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "0eb894c2-d394-41b6-b8b4-c93328fbb08a",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "36e2aeb0-28a2-4052-bf97-788ceb5243dc",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "27ab345b-4e04-483f-bfdb-2a0031174a79",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "7ee19070-1a62-40e4-95d8-3b33ef87c9ef",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "0543cf54-a255-402e-84e5-f440cc2a67cc",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "4ac219d7-9190-4c21-8c77-eb553c2ad2e0",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "ecf5ac08-fe9a-49e7-bde1-4d16f5a0dfa4",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "dc99346d-7235-412e-999a-bd07b1902a87",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "bf7bd04b-b5fb-4195-b793-81c8e08c5839",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "740a0fe5-c377-432f-a0dd-33142a23876f",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "4750a978-d281-4cdb-a0c8-8f24c06365b5",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "a0749db5-9ce2-4483-b724-c0df79070618",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "4ea632d4-0ebb-42b2-ac86-ba0aaf07c9a0",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "3c8a0a83-b3fc-48a6-a063-8fba06c4b894",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "eb2b5c02-e2ec-43d0-a41f-fbd757f394a8",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "99df1640-53ec-4d7d-a70e-05f81af9dbd4",
+//                 "type": "breed"
+//               }
+//             ]
+//           }
+//         }
+//       },
+//       {
+//         "id": "be0147df-7755-4228-b132-2518c0c6d10d",
+//         "type": "group",
+//         "attributes": {
+//           "name": "Hound Group"
+//         },
+//         "relationships": {
+//           "breeds": {
+//             "data": [
+//               {
+//                 "id": "f534c847-bed1-4b58-b194-dc06ecfe20f9",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "58f9eb88-7288-42a5-b34a-5b5192eaac17",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "b4391694-dcb7-4a30-91f3-d63e2bca25ac",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "5b89a1a3-549f-4166-b6c7-188926b89caa",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "4cebf59e-ddb1-40ab-8a48-ceacb2a54270",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "37b93400-0cfe-4fb1-8045-2bcbcfc98b9d",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "7460a973-58c6-4ac6-8cc9-00ae12f6b8fd",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "330b5cec-9fcf-46bd-8770-fada2fbacc77",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "3170fc88-fde0-4604-ab69-cf238a829a6a",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "861977df-b35a-49c4-b155-e9d29bbd2f0d",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "305408b2-c3a8-4ec8-99f0-33b865dfaeb6",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "50c576c9-336f-4269-ad1f-5bd55a490d68",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "32534831-9241-4be3-a594-70c45e1a9bbe",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "d7ddec39-1ca5-4e56-b42f-e24f54884ae8",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "d8621d92-6558-451c-8631-a32e767026a0",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "0cef8682-d0c9-48f0-890b-f567eb2e7c2d",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "83094720-d816-439f-8a79-d44127b6c47e",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "488fd6fe-b444-4cd9-868b-7e68b17f6f0a",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "c06b530a-5ef7-4283-b6a4-cac81120abb9",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "4823c4e3-d4bf-4cd3-ac6c-88fb2d8a4cdd",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "0d84dcb0-2eb9-41fe-882a-29e140dd0822",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "1ceaee48-1374-4b11-9c66-173cce6f5da5",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "3e4912ab-bf3c-40cd-8eb9-be1e5999179b",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "0af27828-f1f6-41d4-8580-48025d5e182c",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "db7a3ede-d877-4e6f-bd98-8c9ba9ff1d8d",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "8355b9c9-3724-477d-858a-c1c1c0f1743f",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "4524645f-dda7-4031-9272-dee29f5f91ea",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "22d12a56-28eb-491b-bbae-550966e95d51",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "8acfbb7f-f4b8-4e56-b64a-283a007a77eb",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "09d3fe1d-03d7-46d8-ad86-d66288563673",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "edf3d596-e83b-4ba1-972b-d1144a39cf3c",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "dd9362cc-52e0-462d-b856-fccdcf24b140",
+//                 "type": "breed"
+//               }
+//             ]
+//           }
+//         }
+//       },
+//       {
+//         "id": "7f6ea988-366a-4e20-b4ba-4d04274fea61",
+//         "type": "group",
+//         "attributes": {
+//           "name": "Non-Sporting Group"
+//         },
+//         "relationships": {
+//           "breeds": {
+//             "data": [
+//               {
+//                 "id": "6f540c30-27a8-48cc-8d88-0b1d9fa99167",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "88025f0c-987f-42e9-98e0-ccb8b53516e9",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "9ca1f843-4cad-45b3-847f-bc7975864b1d",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "0a8e3eb0-8a37-4734-ad51-c3002c18fd19",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "9228d16a-8a13-447c-90a4-0bafdf31aef4",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "710ba3fe-c4ee-4d7c-b5cc-1cb19a4815fc",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "03c728a4-258a-4c31-8a1e-5c5e89455cdb",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "1ed6a742-ac64-4f53-8f52-9eb48bef560a",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "e1c0664d-aa61-4c85-970d-6c86ba197bee",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "239b9cb3-02bc-47e0-a970-7400a838d352",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "80d23247-6f46-4962-90cc-c3692b4cb4a5",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "bf1a3791-0df3-4338-9b99-53ac4641bdda",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "22ec7c8e-9339-45b1-b524-54caa7570760",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "df58876a-a3b9-4737-8b0e-90b422e9aa6b",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "518ae773-39ae-4139-963d-d2c1594ff971",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "84cb99f1-4735-4dc9-a3b3-25a5f0fb0eb5",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "6978f4da-e6a9-4f85-b120-d5ac9f416c36",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "3f17b92b-bd0c-499a-bc84-da8f2a206bab",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "1fa29da4-8cc9-4f82-9c4d-cd93ee6dd6be",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "43cdadb4-851b-4a3a-99c1-5f63d08d97f8",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "5ba3c057-7190-42b4-a9dc-209b9b7130ee",
+//                 "type": "breed"
+//               }
+//             ]
+//           }
+//         }
+//       },
+//       {
+//         "id": "ab110192-e41b-43ff-a630-f7aee156b33a",
+//         "type": "group",
+//         "attributes": {
+//           "name": "Sporting Group"
+//         },
+//         "relationships": {
+//           "breeds": {
+//             "data": [
+//               {
+//                 "id": "6dee41b1-0805-4f4e-a079-c8b1cdfa1768",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "3d6b889f-9c5e-4b31-bb46-60280beeb663",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "095a1856-6506-478d-a7a8-206847d5e702",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "188075d0-5a8a-4829-8c3e-128d75b691ca",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "ac5ad4bc-3abc-4a19-ae0c-afbef891f400",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "90dac44c-f0d9-43bb-9560-cd47010a72ec",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "851399dd-ebd6-49d6-b4c1-ec26ee583799",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "3c7ca8f4-175f-4d55-bedb-5c53907340f9",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "4a230092-a25e-4efe-8240-a6693b5405f4",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "d0a44aee-d13d-44f4-b336-4b7bcd83c77f",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "f26e0db8-36ce-42de-bf31-b3c78729ff54",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "9114c6b8-1ff4-42c9-8188-b669d20bfa5a",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "699a4ee6-564c-43e2-8932-5159657a29a8",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "33f28453-ae29-41be-8f02-e9cd16c7efbd",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "da847994-042e-4213-9e5d-c529b22e37b5",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "43578b4e-bca9-41b4-b493-cd9eb07d28dd",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "89e06189-4e3c-43a3-9494-16073e888fc0",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "1d355e56-02d2-494d-93b5-516ffc189d20",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "848c0ddc-268b-4ba3-931e-1a6e7853c01d",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "3b7aa8d3-4e4c-424b-bf4d-11453c26bb00",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "9d7c4db8-b9cf-4ed3-af8e-86fc56fbf251",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "46a95f0b-8b66-400d-8323-07084c36fcae",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "fee91641-2a2e-4c4f-b557-cff67c5803bc",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "4dba996c-1b89-4fd5-92c1-3df35c05ecac",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "2d7be3ac-c72b-4d2f-af62-93a1f1d944f9",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "caa684f6-7844-4400-a2f8-60f17f800295",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "aa6b097f-cf9a-4728-a701-99e38275bc6d",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "4fec6538-41d2-449c-9ba1-663a4144e2df",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "29a93640-0e51-4a03-8675-d16ddcdde345",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "84655247-4437-4031-b728-f00eaaad9dbf",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "13aab520-e65d-42ef-8b9d-8e6010b19ae3",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "f2e17571-e03c-42fe-bf13-ba20b9f96e93",
+//                 "type": "breed"
+//               }
+//             ]
+//           }
+//         }
+//       },
+//       {
+//         "id": "1bbf373b-1937-4e73-9863-45385daa4979",
+//         "type": "group",
+//         "attributes": {
+//           "name": "Terrier Group"
+//         },
+//         "relationships": {
+//           "breeds": {
+//             "data": [
+//               {
+//                 "id": "beff84c3-66c4-4335-beba-f346c2565881",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "ce0d81ac-55b1-4771-bd0b-7666a1f94f13",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "983e5341-b39b-43d0-bc92-ec57e99ffbfe",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "bba868bb-71ce-4e66-9970-861fb5af642f",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "0c6755a1-3877-4933-bc6d-08b8d197cefb",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "6c12d646-c06e-47ae-b322-998b737f54c1",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "1042a426-55b1-4129-8331-1c54b4f5c506",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "ff7758e7-c33d-472d-ab8d-04d3a6354b39",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "4b3278eb-612a-4e87-b2ab-73174d039514",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "2eb1ba4b-1fa2-40ab-827c-a1c1e6d28b17",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "5e4d2176-648d-4333-b263-cef04563dee4",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "84b24bac-9b97-4bb0-a585-e8bb18de1a58",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "21ee6f2c-4250-45f5-badd-51ed6c6c450b",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "09be818d-ef06-4f25-a616-9ab5d7456c9c",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "381bd789-3be9-4bb5-aab6-16381134b1d2",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "30a056b8-2bbe-4aa9-b874-c511eb2ca775",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "5d5a842e-7eea-4355-93d2-d0b9ff23fa3d",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "faa43ad0-3e19-4506-9a31-0bd1d821f5aa",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "0a044dcd-1f9a-4b83-b52c-ea898241fb25",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "b4233dc2-c233-4122-9f67-4c895a3717d5",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "a2480fdc-1200-48f6-974b-e0cd642e5fff",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "84f73717-1814-42c6-90e6-33a047635dd7",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "f6eeac88-d62d-4ae7-9357-d3ca9bbc916a",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "5a9bd4e9-6346-4c40-ac39-f42b12da555b",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "5b631664-c346-4e2c-89c5-ee0b82cafa6f",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "791fa86c-ff6c-49d9-92ee-b33c755ca50e",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "5396c717-b1a6-4295-a3a7-04bb5cad66fd",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "1460844f-841c-4de8-b788-271aa4d63224",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "32e67add-67a8-481b-8179-1bd5ec79e8bb",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "e9579b15-81f7-40ea-98e7-21af2631dceb",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "11d190ba-4f98-4671-8952-518e7fbcbd7b",
+//                 "type": "breed"
+//               }
+//             ]
+//           }
+//         }
+//       },
+//       {
+//         "id": "f56dc4b1-ba1a-4454-8ce2-bd5d41404a0c",
+//         "type": "group",
+//         "attributes": {
+//           "name": "Toy Group"
+//         },
+//         "relationships": {
+//           "breeds": {
+//             "data": [
+//               {
+//                 "id": "9ca8f849-4979-4634-80bc-949692635577",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "8541e4d7-5f08-40db-bda3-1fc0cfeec869",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "96342549-046f-4f69-9870-8cd95f138b94",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "88591552-b3bd-45fd-931c-5c8b88aad4f2",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "dd9017cb-368d-4013-8e9c-01ec3f305365",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "a6ea38ed-f692-478e-af29-378d0e2cc270",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "7193b618-726e-4f55-afc8-7ed1cba665c4",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "092dae18-86f4-4b41-a3f8-f57fab2f6f2c",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "9a128e96-c007-443b-a352-781de84660c4",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "ce40589c-295a-4259-9e83-711854db8129",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "9b61bf4c-7024-4fb3-af78-e10ac05bab42",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "e4aa816d-fb22-4841-80c4-b9967c310447",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "c9b33324-0581-42a7-b2c1-5da3bba5f350",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "5ac6a386-451a-44f8-b920-b2c66875d769",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "1df4e248-3012-405c-838f-981c87d6a148",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "780895fe-5194-4ace-a365-f95dfdcde4c2",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "b7211a59-787d-4b34-b390-77b9b0dc5b9d",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "feaa80fe-68bc-42b9-b2b5-2220ec4ff615",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "521d8c02-32b9-4b50-8f0d-f791b4bfe697",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "ec7eae56-137b-4f7e-86e9-1e008c2e3294",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "52124cb6-e1eb-4887-904f-ab06a3ace3f1",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "6eab391a-9497-4283-b994-81a17b5810b1",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "036feed0-da8a-42c9-ab9a-57449b530b13",
+//                 "type": "breed"
+//               }
+//             ]
+//           }
+//         }
+//       },
+//       {
+//         "id": "56081cf0-fdf2-4114-9bf7-23a3f5b6af91",
+//         "type": "group",
+//         "attributes": {
+//           "name": "Working Group"
+//         },
+//         "relationships": {
+//           "breeds": {
+//             "data": [
+//               {
+//                 "id": "1fa5afe6-4105-447c-9e18-a69ac4a7c8b3",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "e0561c26-6d8b-42ae-88df-3047873e929a",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "5328d59b-b4e4-48e9-98ec-0545c66c4385",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "b8c442e2-3359-47b3-962e-516835519252",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "8f462ef6-7c21-43f8-abb0-b805587c5b0d",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "e16a9f90-786f-40f5-9149-97e2a9a4ed8b",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "8a9ada9a-bc6e-40a6-af71-449c6cfc3d46",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "c94e50a5-f733-4b15-8b11-54598c949b6f",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "4033b262-984d-458a-9a0d-aa8e9cdda8e4",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "1ce29779-f1c3-47f4-894c-c45173f35336",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "63ada456-e0c7-4b52-9759-25efec4dc540",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "e0c3dc07-73d6-4209-ae0b-8ddd99817287",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "f9f8166b-aee7-4b32-bc01-170bddd89731",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "790237ad-b9a8-4e89-88f8-5a1e37319de2",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "9cb2e6d5-bacb-4b14-a534-7b1b243045b0",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "e7e99424-d514-4b56-9f0c-05736f6dd22d",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "3f5ec130-8f1e-41fb-b614-26dda736375f",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "da3946bb-9281-4ee3-b39a-f4434a433628",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "29fac412-58f8-44c4-8a47-77527e55123b",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "e3046d15-8fae-4cbb-a6df-4afe80490bbd",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "9aafa721-a86d-4df6-880f-75fa117ee468",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "08c9fafe-fc77-4da8-9824-05f64910a8e1",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "0780919e-5b5d-4883-9c09-c6d150e224ce",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "8950e2cc-9a30-49b2-8d47-041e9109ea35",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "361a7e04-f1d7-4152-be63-895bb9e75e44",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "1a952f2e-790d-4e9d-86f5-8e92604677f8",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "a5c3be17-6557-4438-9801-badee2d63419",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "11f90c78-8f4c-43f7-bc47-fab733a33c6b",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "eb5988dd-6ffe-453f-9ded-206c9a9026ed",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "ca34c3f8-40dc-4dec-aadf-2633016c7cc0",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "5e415b34-d15f-46da-ab83-25ec1e48bced",
+//                 "type": "breed"
+//               }
+//             ]
+//           }
+//         }
+//       },
+//       {
+//         "id": "d4b72541-a1c6-46d7-b13c-709e148c7884",
+//         "type": "group",
+//         "attributes": {
+//           "name": "Miscellaneous Class"
+//         },
+//         "relationships": {
+//           "breeds": {
+//             "data": [
+//               {
+//                 "id": "07c54488-8697-4785-b68f-93296bb24f06",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "bf30a823-eddb-4a1f-a853-2a114760f458",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "b5eb977b-8944-4c04-923f-4ab745be8239",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "be5dfe10-f705-49a3-94d0-9e6bdb8cf869",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "ac379a19-fc5b-48bc-958e-4c3c39590ac8",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "7ecc1e3f-f940-4d58-b884-da8c3c8d5f61",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "24e38e8b-4c92-4cd9-a6bb-87acc9e53f95",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "6ed6cebe-6b66-4839-a7d4-4b1c930be0d7",
+//                 "type": "breed"
+//               },
+//               {
+//                 "id": "4205d787-90f6-4f53-8dc9-87d9b61d90be",
+//                 "type": "breed"
+//               }
+//             ]
+//           }
+//         }
+//       }
+//     ],
+//     "links": {
+//       "self": "https://dogapi.dog/api/v2/groups",
+//       "current": "https://dogapi.dog/api/v2/groups?page[number]=1"
+//     }
+//   }
+
+{
+    "data": {
+      "id": "f56dc4b1-ba1a-4454-8ce2-bd5d41404a0c",
+      "type": "group",
+      "attributes": {
+        "name": "Toy Group"
+      },
+      "relationships": {
+        "breeds": {
+          "data": [
+            {
+              "id": "9ca8f849-4979-4634-80bc-949692635577",
+              "type": "breed"
+            },
+            {
+              "id": "8541e4d7-5f08-40db-bda3-1fc0cfeec869",
+              "type": "breed"
+            },
+            {
+              "id": "96342549-046f-4f69-9870-8cd95f138b94",
+              "type": "breed"
+            },
+            {
+              "id": "88591552-b3bd-45fd-931c-5c8b88aad4f2",
+              "type": "breed"
+            },
+            {
+              "id": "dd9017cb-368d-4013-8e9c-01ec3f305365",
+              "type": "breed"
+            },
+            {
+              "id": "a6ea38ed-f692-478e-af29-378d0e2cc270",
+              "type": "breed"
+            },
+            {
+              "id": "7193b618-726e-4f55-afc8-7ed1cba665c4",
+              "type": "breed"
+            },
+            {
+              "id": "092dae18-86f4-4b41-a3f8-f57fab2f6f2c",
+              "type": "breed"
+            },
+            {
+              "id": "9a128e96-c007-443b-a352-781de84660c4",
+              "type": "breed"
+            },
+            {
+              "id": "ce40589c-295a-4259-9e83-711854db8129",
+              "type": "breed"
+            },
+            {
+              "id": "9b61bf4c-7024-4fb3-af78-e10ac05bab42",
+              "type": "breed"
+            },
+            {
+              "id": "e4aa816d-fb22-4841-80c4-b9967c310447",
+              "type": "breed"
+            },
+            {
+              "id": "c9b33324-0581-42a7-b2c1-5da3bba5f350",
+              "type": "breed"
+            },
+            {
+              "id": "5ac6a386-451a-44f8-b920-b2c66875d769",
+              "type": "breed"
+            },
+            {
+              "id": "1df4e248-3012-405c-838f-981c87d6a148",
+              "type": "breed"
+            },
+            {
+              "id": "780895fe-5194-4ace-a365-f95dfdcde4c2",
+              "type": "breed"
+            },
+            {
+              "id": "b7211a59-787d-4b34-b390-77b9b0dc5b9d",
+              "type": "breed"
+            },
+            {
+              "id": "feaa80fe-68bc-42b9-b2b5-2220ec4ff615",
+              "type": "breed"
+            },
+            {
+              "id": "521d8c02-32b9-4b50-8f0d-f791b4bfe697",
+              "type": "breed"
+            },
+            {
+              "id": "ec7eae56-137b-4f7e-86e9-1e008c2e3294",
+              "type": "breed"
+            },
+            {
+              "id": "52124cb6-e1eb-4887-904f-ab06a3ace3f1",
+              "type": "breed"
+            },
+            {
+              "id": "6eab391a-9497-4283-b994-81a17b5810b1",
+              "type": "breed"
+            },
+            {
+              "id": "036feed0-da8a-42c9-ab9a-57449b530b13",
+              "type": "breed"
+            }
+          ]
+        }
+      }
+    },
+    "links": {
+      "self": "https://dogapi.dog/api/v2/groups/f56dc4b1-ba1a-4454-8ce2-bd5d41404a0c"
+    }
+  }
