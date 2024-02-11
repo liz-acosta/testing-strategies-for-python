@@ -26,10 +26,19 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
-        <div class="container">
+    <nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+        <div class="container-fluid">
             <a href="../" class="navbar-brand">Build-a-Pug</a>
+            <div class="collapse navbar-collapse" id="navbarColor01">
+                <ul class="navbar-nav me-auto">
+
+                  <li class="nav-item">
+                    <a class="nav-link" href="{{ url_for('pug_facts') }}">Pug Facts</a>
+                  </li>
+                </ul>
+            </div>
         </div>
+
     </nav>
     
     <main class="container">

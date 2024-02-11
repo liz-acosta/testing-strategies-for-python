@@ -52,10 +52,17 @@ def create_app(configfile=None):
         session['puppy_dinner_result'] = puppy_dinner_result
         return render_template('heresyourpug.html', pug_description=session['pug_description'], pug_image=session['pug_image'], puppy_dinner_result=session['puppy_dinner_result'])
     
-    # @app.route("/pugfacts", methods=['GET'])
-    # def pug_facts():
-    #     pug_breed_facts = json.loads(requests.get(BASE_URL + 'breeds/' + PUG_ID).content)['data']['attributes']
-    #     return render_template('pugfacts.html', pug_breed_facts=pug_breed_facts)
+    @app.route("/pugfacts", methods=['GET'])
+    def pug_facts():
+        pug_breed_response = json.loads(requests.get(BASE_URL + 'breeds/' + PUG_ID).content)['data']['attributes']
+        pug_weight = (float(pug_breed_response['male_weight']['max']) * 2.2046)
+        pug_breed_facts = {
+            'description': pug_breed_response['description'],
+            'max_age': pug_breed_response['life']['max'],
+            'weight': round(pug_weight),
+        }
+
+        return render_template('pugfacts.html', pug_breed_facts=pug_breed_facts)
     
     return app
 

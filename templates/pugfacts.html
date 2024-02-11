@@ -17,11 +17,20 @@
     <div class="row">
       <div class="col-lg-6">
         <div class="bs-component">
-          <p class="lead">{{ pug_breed_facts.description }}</p>
-          <img src="static/img/pug-stock-photo.jpeg" class="img-fluid" style="max-width: 50%; height: auto">
+          <img src="static/img/pug-stock-photo.jpeg" class="img-fluid" style="max-width: 100%; height: auto">
         </div>
       </div>
-    
+
+      <div class="col-lg-6">
+        <div class="bs-component">
+          <p class="lead">{{ pug_breed_facts.description }}</p>
+          <p class="lead">Pugs can weigh up to {{ pug_breed_facts.weight }} pounds.</p>
+          <p class="lead">And they can live as long as {{ pug_breed_facts.max_age }} years!</p>
+        </div>
+        <div class="bs-component" style="text-align: center;">
+          <img src="static/img/pug-head-tilt.gif" class="img-fluid" style="max-width: 50%; height: auto; text-align: center;">
+        </div>
+      </div>
       
   </div>
 </div>
