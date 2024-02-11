@@ -1,6 +1,9 @@
 import datetime
 import random
 import openai
+from openai import OpenAI
+
+
 from dotenv import load_dotenv
 import os
 
@@ -8,6 +11,8 @@ import os
 load_dotenv()
 OPENAI_KEY = os.getenv("OPENAI_KEY")
 OPENAI_ORGANIZATION = os.getenv("OPENAI_ORGANIZATION")
+
+client = OpenAI(api_key=OPENAI_KEY)
 
 
 class Pug:
@@ -47,10 +52,10 @@ class Pug:
 
         pug_prompt = f"A cute photo of {self.name}. {pug_description}."
 
-        openai.api_key = OPENAI_KEY
-        openai.organization = OPENAI_ORGANIZATION
-        response = openai.Image.create(prompt=pug_prompt, n=1, size='1024x1024')
-        image_url = response['data'][0]['url']
+        # TODO: The 'openai.organization' option isn't read in the client API. You will need to pass it when you instantiate the client, e.g. 'OpenAI(organization=OPENAI_ORGANIZATION)'
+        # openai.organization = OPENAI_ORGANIZATION
+        response = client.images.generate(prompt=pug_prompt, n=1, size='1024x1024')
+        image_url = response.data[0].url
         return image_url
  
     @staticmethod
