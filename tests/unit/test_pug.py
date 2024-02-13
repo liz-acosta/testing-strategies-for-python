@@ -4,8 +4,9 @@ import requests
 from unittest.mock import patch, Mock
 from pug import Pug, get_pug_facts
 from utils.mock_server import get_free_port, start_mock_server
+import os
 
-TEST_ENV = 'stage'
+TEST_ENV = os.getenv("TEST_ENV", 'dev')
 
 class TestPug(unittest.TestCase):
     """Test Class for Class Pug"""
