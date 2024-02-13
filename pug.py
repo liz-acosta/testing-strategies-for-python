@@ -2,6 +2,8 @@ import datetime
 import random
 import openai
 from openai import OpenAI
+import json
+import requests
 
 
 from dotenv import load_dotenv
@@ -14,6 +16,7 @@ OPENAI_ORGANIZATION = os.getenv("OPENAI_ORGANIZATION")
 
 client = OpenAI(api_key=OPENAI_KEY)
 
+PUG_FACTS_URL = 'https://dogapi.dog/api/v2/breeds/a6ea38ed-f692-478e-af29-378d0e2cc270'
 
 class Pug:
     """Create a PUG with a name, age, home, and time for puppy dinner"""
@@ -85,7 +88,21 @@ class Pug:
         drop_item = random.choice(items)
 
         print("Good dog!")
+
+def get_pug_facts():
     
+    pug_breed_response = requests.get(PUG_FACTS_URL)
+    print("***** Response", pug_breed_response)
+    print("RESPONS@@@", pug_breed_response.content)
+    pug_breed_facts = json.loads(pug_breed_response.content)['data']['attributes']
+    pug_weight = (float(pug_breed_facts['male_weight']['max']) * 2.2046)
+    pug_facts = {
+        'description': pug_breed_facts['description'],
+        'max_age': pug_breed_facts['life']['max'],
+        'weight': round(pug_weight),
+    }
+
+    return pug_facts
 
 def demo_pug():
     """Demo the pug class"""

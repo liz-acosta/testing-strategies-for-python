@@ -6,18 +6,17 @@ from wtforms.fields import *
 import requests
 import json
 
-from .pug import Pug
+from .pug import Pug, get_pug_facts
 from .form import PugForm, FormError
 
-BASE_URL = 'https://dogapi.dog/api/v2/'
-PUG_ID = 'a6ea38ed-f692-478e-af29-378d0e2cc270'
+
 
 def create_app(configfile=None):
     app = Flask(__name__)
     bootstrap = Bootstrap5(app)
     app.config['SECRET_KEY'] = 'any secret string'
     app.config['BOOTSTRAP_BOOTSWATCH_THEME'] = 'minty'
-    app.config.from_pyfile('settings.py')
+    # app.config.from_pyfile('settings.py')
 
     @app.errorhandler(FormError)
     def invalid_api_usage(e):
@@ -54,14 +53,7 @@ def create_app(configfile=None):
     
     @app.route("/pugfacts", methods=['GET'])
     def pug_facts():
-        pug_breed_response = json.loads(requests.get(BASE_URL + 'breeds/' + PUG_ID).content)['data']['attributes']
-        pug_weight = (float(pug_breed_response['male_weight']['max']) * 2.2046)
-        pug_breed_facts = {
-            'description': pug_breed_response['description'],
-            'max_age': pug_breed_response['life']['max'],
-            'weight': round(pug_weight),
-        }
-
+        pug_breed_facts = get_pug_facts()
         return render_template('pugfacts.html', pug_breed_facts=pug_breed_facts)
     
     return app
