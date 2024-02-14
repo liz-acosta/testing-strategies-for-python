@@ -6,13 +6,17 @@ from pug import Pug, get_pug_facts
 from utils.mock_server import get_free_port, start_mock_server
 import os
 
+# Get TEST_ENV from environment variable
+# Used below to determine tests to run or skip 
 TEST_ENV = os.getenv("TEST_ENV", 'dev')
+
+PUG_BREED_INFO_ENDPOINT = "/breeds/a6ea38ed-f692-478e-af29-378d0e2cc270"
 
 class TestPug(unittest.TestCase):
     """Test Class for Class Pug"""
  
     def test_pug_instance_successful(self):
-        """Tests if the instatiation of a class Pug is successful"""
+        """Tests if the instance of a class Pug is successful"""
 
         test_result = Pug("Gary", "14", "San Francisco", "5:00 PM")
         test_data = [{'test_result': test_result.name,
@@ -27,7 +31,7 @@ class TestPug(unittest.TestCase):
             self.assertEqual(data['test_result'], data['expected_result'])
     
     def test_pug_instance_exceptions(self):
-        """Tests if the instatiation of a class Pug results in the correct exception"""
+        """Tests if the instance of a class Pug results in the correct exception"""
         
         test_data = [{'case': "Invalid age",
                       'name': "Gary",
@@ -119,27 +123,19 @@ class TestPugWithSetup(unittest.TestCase):
             self.test_pug.drop_it()
 
 class TestPugFacts(unittest.TestCase):
+    """Test Class to test the get_pug_facts function -- includes setup for a mock server for the Dog API `/breeds/{id}` endpoint"""
     @classmethod
     def setUpClass(cls):
         cls.mock_server_port = get_free_port()
         start_mock_server(cls.mock_server_port)
-
-    def test_get_pug_facts_with_real_api_call(self):
-        print("SKIPPING")
-        expected_pug_facts = {
-            'description': "The Pug is a small, playful breed that is known for its comical expression, charming personality, and loyalty. This breed is native to China, where it was originally kept as a companion and lapdog by the imperial court.",
-            'max_age': 15,
-            'weight': 18,
-        }
-        test_pug_facts = get_pug_facts()
-
-        self.assertEqual(test_pug_facts, expected_pug_facts, msg="Test for get_pug_facts with real API call failed")
     
-    @unittest.skipUnless(TEST_ENV.startswith('stage'), f"Skpping mock server test because TEST_ENV: {TEST_ENV}")
+    @unittest.skipUnless(TEST_ENV.startswith('stage'), f"Skipping mock server test because TEST_ENV: {TEST_ENV}")
     def test_get_pug_facts_with_mock_server(self):
-        print("SKIPPING")
-        mock_pug_facts_url = 'http://127.0.0.1:{port}/breeds/a6ea38ed-f692-478e-af29-378d0e2cc270'.format(port=self.mock_server_port)
+        """Tests get_puf_facts with call to mock API endpoint"""
+        port = self.mock_server_port
+        mock_pug_facts_url = f'http://127.0.0.1:{port}' + PUG_BREED_INFO_ENDPOINT
     
+        # Patch the pug facts URL dict object with the mock pug facts URL derived from the mock server
         with patch.dict('pug.__dict__', {'PUG_FACTS_URL': mock_pug_facts_url}):
             expected_pug_facts = {
                 'description': "The Pug is a small, playful breed that is known for its comical expression, charming personality, and loyalty. This breed is native to China, where it was originally kept as a companion and lapdog by the imperial court.",
@@ -150,9 +146,9 @@ class TestPugFacts(unittest.TestCase):
 
             self.assertEqual(test_pug_facts, expected_pug_facts, msg="Test for get_pug_facts with mock server failed")
 
-    @unittest.skipUnless(TEST_ENV.startswith('prod'), f"Skpping real API test because TEST_ENV: {TEST_ENV}")
+    @unittest.skipUnless(TEST_ENV.startswith('prod'), f"Skipping real API test because TEST_ENV: {TEST_ENV}")
     def test_get_pug_facts_with_real_api_call(self):
-        print("SKIPPING")
+        """Tests get_puf_facts with call to real API endpoint"""
         expected_pug_facts = {
             'description': "The Pug is a small, playful breed that is known for its comical expression, charming personality, and loyalty. This breed is native to China, where it was originally kept as a companion and lapdog by the imperial court.",
             'max_age': 15,
