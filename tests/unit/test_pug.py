@@ -131,7 +131,7 @@ class TestPugFacts(unittest.TestCase):
     
     @unittest.skipUnless(TEST_ENV.startswith('stage'), f"Skipping mock server test because TEST_ENV: {TEST_ENV}")
     def test_get_pug_facts_with_mock_server(self):
-        """Tests get_puf_facts with call to mock API endpoint"""
+        """Tests get_pug_facts with call to mock API endpoint"""
         port = self.mock_server_port
         mock_pug_facts_url = f'http://127.0.0.1:{port}' + PUG_BREED_INFO_ENDPOINT
     
@@ -148,7 +148,7 @@ class TestPugFacts(unittest.TestCase):
 
     @unittest.skipUnless(TEST_ENV.startswith('prod'), f"Skipping real API test because TEST_ENV: {TEST_ENV}")
     def test_get_pug_facts_with_real_api_call(self):
-        """Tests get_puf_facts with call to real API endpoint"""
+        """Tests get_pug_facts with call to real API endpoint"""
         expected_pug_facts = {
             'description': "The Pug is a small, playful breed that is known for its comical expression, charming personality, and loyalty. This breed is native to China, where it was originally kept as a companion and lapdog by the imperial court.",
             'max_age': 15,
