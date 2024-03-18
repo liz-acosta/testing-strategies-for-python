@@ -76,24 +76,6 @@ class Pug:
             result = f"The current time is {current_time.strftime('%I:%M %p')}. It is not yet time for puppy dinner 😔"
         return result
 
-    def drop_it(self):
-        """Command pug to drop whatever is in their mouth!"""
-
-        print("What's in your mouth? Drop it!")
-
-        items = [
-            "slice of pizza",
-            "poisonous house plant leaf",
-            "tennis ball",
-            "greenie",
-            "router plug",
-            "squeaky toy",
-            "trash",
-        ]
-        drop_item = random.choice(items)
-
-        print("Good dog!")
-
 
 def get_pug_facts():
     """"Get pug facts from Dog API"""

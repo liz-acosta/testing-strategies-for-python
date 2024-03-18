@@ -20,7 +20,7 @@ This example code uses Python's [unittest](https://docs.python.org/3/library/uni
 
 * To [discover](https://docs.python.org/3/library/unittest.html?highlight=discover#unittest.TestLoader.discover) and run the tests: `pipenv run tests`
 * To execute a [coverage](https://coverage.readthedocs.io/en/7.3.1/index.html) static code analysis: `pipenv run coverage-analysis`
-* To generage a coverage report: `pipenv run coverage-report`
+* To generate a coverage report: `pipenv run coverage-report`
 * (See all available pipenv scripts: `pipenv scripts`)
 
 ## Run locally

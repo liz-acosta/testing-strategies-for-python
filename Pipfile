@@ -18,7 +18,7 @@ requests = "*"
 python_version = "3.11"
 
 [scripts]
-test-pug = "python -m unittest tests.unit.test_pug -v"
+pug-unit-tests = "python -m unittest tests.unit.test_pug -v"
 test-pug-class = "python -m unittest test_pug.TestPug.test_pug_instance_successful"
 test-parameterization = "python -m unittest test_pug.TestPug.test_pug_instance_exceptions"
 test-mocking = "python -m unittest test_pug.TestPugWithSetup.test_build_pug test_pug.TestPugWithSetup.test_check_for_puppy_dinner"
