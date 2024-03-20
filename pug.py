@@ -81,8 +81,8 @@ def get_pug_facts():
     """"Get pug facts from Dog API"""
 
     pug_breed_response = requests.get(PUG_FACTS_URL)
-    pug_breed_facts = json.loads(pug_breed_response.content)["data"]["attributes"]
-    pug_weight = float(pug_breed_facts["male_weight"]["max"]) * 2.2046
+    pug_breed_facts = pug_breed_response.json()["data"]["attributes"]
+    pug_weight = pug_breed_facts["male_weight"]["max"]
     pug_facts = {
         "description": pug_breed_facts["description"],
         "max_age": pug_breed_facts["life"]["max"],

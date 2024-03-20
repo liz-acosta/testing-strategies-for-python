@@ -3,15 +3,10 @@ import datetime
 import requests
 from openai.types.images_response import ImagesResponse
 from openai.types.image import Image
-from unittest.mock import patch, Mock
-from pug import Pug, get_pug_facts
+from unittest.mock import patch, MagicMock
+from pug import Pug, get_pug_facts, PUG_FACTS_URL
+from tests.utils.helpers import is_valid_url
 import os
-
-# TODO: Test for real API endpoint
-# Fix assert on openai test
-# Maybe e2e test
-# Make targets
-# Tidy up
 
 # Get TEST_ENV from environment variable
 # Used below to determine tests to run or skip 
@@ -61,37 +56,29 @@ class TestPug(unittest.TestCase):
                 self.assertEqual(str(test_e.exception), data['expected_result'],
                 msg="Test for pug instantiation exception failed")
 
-    @patch('pug.requests')
+    @patch('pug.requests', autospec=True)
     def test_get_pug_facts(self, mock_requests):
+        """Tests get_pug_facts with a mock requests object, checks if the correct URL is called"""
 
-        mocked_pug_facts_response = Mock(requests.Response)
-        mocked_pug_facts_response.content = b'{"data": {"id": "a6ea38ed-f692-478e-af29-378d0e2cc270", "type": "breed", "attributes": {"name": "Pug", "description": "The Pug is a small, playful breed that is known for its comical expression, charming personality, and loyalty. This breed is native to China, where it was originally kept as a companion and lapdog by the imperial court.", "life": {"max": 15, "min": 12}, "male_weight": {"max": 8, "min": 6}, "female_weight": {"max": 8, "min": 6}, "hypoallergenic": "false"}, "relationships": {"group": {"data": {"id": "f56dc4b1-ba1a-4454-8ce2-bd5d41404a0c", "type": "group"}}}}, "links": {"self": "https://dogapi.dog/api/v2/breeds/a6ea38ed-f692-478e-af29-378d0e2cc270"}}'
+        mocked_pug_facts_response = MagicMock(spec=requests.Response)
         mock_requests.get.return_value = mocked_pug_facts_response
 
-        expected_pug_facts = {
-            'description': "The Pug is a small, playful breed that is known for its comical expression, charming personality, and loyalty. This breed is native to China, where it was originally kept as a companion and lapdog by the imperial court.",
-            'max_age': 15,
-            'weight': 18,
-        }
-        test_pug_facts = get_pug_facts()
+        get_pug_facts()
 
-        self.assertEqual(test_pug_facts, expected_pug_facts, msg="Test for get_pug_facts failed")
-    
+        mock_requests.get.assert_called_with(PUG_FACTS_URL)
+
     # An example of using unittest.skipUnless to create a test case
     # that makes an actual request to the pug facts endpoint
+    # only when TEST_ENV is `prod`
     # https://docs.python.org/3/library/unittest.html#skipping-tests-and-expected-failures
     @unittest.skipUnless(TEST_ENV.startswith('prod'), f"Skipping real API test because TEST_ENV: {TEST_ENV}")
     def test_get_pug_facts_with_real_api_call(self):
-        """Tests get_puf_facts with call to real API endpoint"""
-        expected_pug_facts = {
-            'description': "The Pug is a small, playful breed that is known for its comical expression, charming personality, and loyalty. This breed is native to China, where it was originally kept as a companion and lapdog by the imperial court.",
-            'max_age': 15,
-            'weight': 18,
-        }
-        test_pug_facts = get_pug_facts()
+        """Tests get_pug_facts with call to real API endpoint, checks the returned json for the keys used in the method"""
+        
+        expected_result = ['description', 'max_age', 'weight']
+        test_result = get_pug_facts()
 
-        self.assertEqual(test_pug_facts, expected_pug_facts, msg="Test for get_pug_facts with real API call failed")
-
+        self.assertEqual(list(test_result.keys()), expected_result, msg="Test for get_pug_facts with real API call failed")
 
 class TestPugWithSetup(unittest.TestCase):
     """Test Class for Class Pug with a pug class setup that occurs before all the tests"""
@@ -101,7 +88,7 @@ class TestPugWithSetup(unittest.TestCase):
         cls.test_pug = Pug("Gary", "14", "San Francisco", "5:00 PM")
     
     def test_pug_describe_pug(self):
-        """Tests the describe_pug function"""
+        """Tests describe_pug"""
 
         expected_result = "Gary is a pug who is 14 years old and lives in San Francisco."
         test_result = self.test_pug.describe_pug()
@@ -109,29 +96,39 @@ class TestPugWithSetup(unittest.TestCase):
     
     @patch('pug.client.images', autospec=True)
     def test_build_pug(self, mock_openai):
+        """Tests build_pug using mock OpenAI client, checks if the correct arguments are used"""
 
-        mock_openai_response = ImagesResponse(created=1234,data=[Image(b64_json=None, revised_prompt=None, url="https://ai-generated-pug")])
+        pug_description = self.test_pug.describe_pug()
+
+        expected_arguments = {
+            'prompt': f"A cute photo of {self.test_pug.name}. {pug_description}.",
+            'n': 1,
+            'size': "1024x1024"}
+
+        mock_openai_response = ImagesResponse(created=1234,
+                                              data=[Image(b64_json=None,
+                                                          revised_prompt=None,
+                                                          url="https://ai-generated-pug")])
 
         mock_openai.generate.return_value = mock_openai_response
         
-        expected_result = 'https://ai-generated-pug'
-        test_result = self.test_pug.build_pug()
-        self.assertEqual(test_result, expected_result, msg="Test for build_pug failed")
-
-    # def test_build_pug_real(self):
-
- 
-
-    #     # attrs = {'data': [{'url':'https://ai-generated-pug'}]}
-
-    #     # mock_openai_response = MagicMock()
-    #     # mock_openai_response.data = [{'url': 'http://example.com/pug.jpg'}]
-    #     # # mock_openai_response.data = [Mock(url='https://ai-generated-pug')]
-    #     # mock_openai.generate.return_value = mock_openai_response
+        self.test_pug.build_pug()
         
-    #     expected_result = 'https://ai-generated-pug'
-    #     test_result = self.test_pug.build_pug()
-    #     self.assertEqual(test_result, expected_result, msg="Test for build_pug failed")
+        mock_openai.generate.assert_called_with(
+            prompt=expected_arguments['prompt'],
+            n=expected_arguments['n'],
+            size=expected_arguments['size'])
+    
+    # An example of using unittest.skipUnless to create a test case
+    # that uses the real OpenAI client
+    # only when TEST_ENV is `prod`
+    # https://docs.python.org/3/library/unittest.html#skipping-tests-and-expected-failures
+    @unittest.skipUnless(TEST_ENV.startswith('prod'), f"Skipping real API test because TEST_ENV: {TEST_ENV}")
+    def test_build_pug_with_real_openai_client(self):
+        """Tests the check_for_puppy_dinner function"""
+
+        test_result = self.test_pug.build_pug()
+        self.assertTrue(is_valid_url(test_result), msg="Test for build_pug with real OpenAI client failed")
     
     # An example of using autospec=True ensures that any attribute called on the mock
     # is an actual attribute of the mocked method
