@@ -20,7 +20,9 @@ This example code uses Python's [unittest](https://docs.python.org/3/library/uni
 
 * To [discover](https://docs.python.org/3/library/unittest.html?highlight=discover#unittest.TestLoader.discover) and run the tests: `pipenv run tests`
 * To execute a [coverage](https://coverage.readthedocs.io/en/7.3.1/index.html) static code analysis: `pipenv run coverage-analysis`
-* To generage a coverage report: `pipenv run coverage-report`
+* To generate a coverage report: `pipenv run coverage-report`
+* To run unit tests: `pipenv pug-unit-tests`
+* (To run tests with a specific test environment: `export TEST_ENV=stage` or `export TEST_ENV=prod` and then: `pipenv pug-unit-tests`)
 * (See all available pipenv scripts: `pipenv scripts`)
 
 ## Run locally
@@ -38,7 +40,8 @@ It should look like this:
 * [Slide deck from PyBay 2023, 8 October 2023, San Francisco, CA](resources/202310_slide-deck_pybay-testing-strategies-for-python.pdf)
 * [Video from PyBay 2023, 8 October 2023, San Francisco, CA](https://www.youtube.com/watch?v=HHR2YnWD0rw)
 * [Using Python’s Built-in Tools for Unit Test Parameterization: A closer look at unittest's subTest()](https://dev.to/lizzzzz/using-pythons-builtin-tools-for-unit-test-parameterization-a-closer-look-at-unittest-subtest-12ca)
-* [Replit for Developer Week 2024, 22 February 2024, Oakland, CA](https://replit.com/@liz-acosta/2024-developer-week#README.md) 
+* [Replit for Developer Week 2024, 22 February 2024, Oakland, CA](https://replit.com/@liz-acosta/2024-developer-week#README.md)
+* [Replit for March BayPIGgies Meetup, 21 March 2024, San Jose, CA](https://replit.com/@liz-acosta/2024-developer-week#README.md)  
 
 ### Mocking
 * [TalkPython: Testing without dependencies, mocking in Python](https://talkpython.fm/episodes/show/287/testing-without-dependencies-mocking-in-python)
