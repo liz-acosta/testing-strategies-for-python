@@ -20,7 +20,7 @@ This example code uses Python's [unittest](https://docs.python.org/3/library/uni
 
 * To [discover](https://docs.python.org/3/library/unittest.html?highlight=discover#unittest.TestLoader.discover) and run the tests: `pipenv run tests`
 * To execute a [coverage](https://coverage.readthedocs.io/en/7.3.1/index.html) static code analysis: `pipenv run coverage-analysis`
-* To generate a coverage report: `pipenv run coverage-report`
+* To generage a coverage report: `pipenv run coverage-report`
 * (See all available pipenv scripts: `pipenv scripts`)
 
 ## Run locally
@@ -38,6 +38,13 @@ It should look like this:
 * [Slide deck from PyBay 2023, 8 October 2023, San Francisco, CA](resources/202310_slide-deck_pybay-testing-strategies-for-python.pdf)
 * [Video from PyBay 2023, 8 October 2023, San Francisco, CA](https://www.youtube.com/watch?v=HHR2YnWD0rw)
 * [Using Python’s Built-in Tools for Unit Test Parameterization: A closer look at unittest's subTest()](https://dev.to/lizzzzz/using-pythons-builtin-tools-for-unit-test-parameterization-a-closer-look-at-unittest-subtest-12ca)
+* [Replit for Developer Week 2024, 22 February 2024, Oakland, CA](https://replit.com/@liz-acosta/2024-developer-week#README.md) 
+
+### Mocking
+* [TalkPython: Testing without dependencies, mocking in Python](https://talkpython.fm/episodes/show/287/testing-without-dependencies-mocking-in-python)
+* [Testing External APIs With Mock Servers](https://realpython.com/testing-third-party-apis-with-mock-servers/)
+* [The Art of Mocking in Software Testing](https://www.methodsandtools.com/archive/archive.php?id=122)
+* [“Don’t Mock What You Don’t Own” in 5 Minutes](https://hynek.me/articles/what-to-mock-in-5-mins/)
 
 ## Enjoy!
 ![alt text](static/img/money-pug.gif)
