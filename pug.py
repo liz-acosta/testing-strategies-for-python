@@ -1,4 +1,4 @@
-import datetime
+from datetime import datetime
 import random
 import openai
 from openai import OpenAI
@@ -38,7 +38,7 @@ class Pug:
 
             self.age = int(age)
             puppy_dinner_format = "%I:%M %p"
-            self.puppy_dinner = datetime.datetime.strptime(
+            self.puppy_dinner = datetime.strptime(
                 puppy_dinner, puppy_dinner_format
             ).strftime("%H:%M")
             print("PUG created!")
@@ -69,7 +69,7 @@ class Pug:
         """Check to see if it's time for puppy dinner
         and return a string"""
 
-        current_time = datetime.datetime.now()
+        current_time = datetime.now()
         if puppy_dinner == current_time.strftime("%H:%M"):
             result = f"The current time is {current_time.strftime('%I:%M %p')}. It is time for puppy dinner! 😍"
         else:
