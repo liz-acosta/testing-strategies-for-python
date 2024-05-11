@@ -10,26 +10,23 @@ This example code uses Python's [unittest](https://docs.python.org/3/library/uni
 
 ## Setup
 
-1. Activate virtual environment: `pipenv shell`
-2. Install dependencies from Pipfile.lock: `pipenv install`
-3. [Add environment variables](https://pypi.org/project/python-dotenv/#getting-started) by renaming `.env_template` to `.env` ...
-4. ... and replacing placeholder secrets with real secrets
-5. (Deactivate virtual environment: `exit`)
+1. Install dependencies from Pipfile.lock: `pipenv install`
+2. [Add environment variables](https://pypi.org/project/python-dotenv/#getting-started) by renaming `.env_template` to `.env` ...
+3. ... and replacing placeholder secrets with real secrets
 
 ## Run tests
 
 * To [discover](https://docs.python.org/3/library/unittest.html?highlight=discover#unittest.TestLoader.discover) and run the tests: `pipenv run tests`
 * To execute a [coverage](https://coverage.readthedocs.io/en/7.3.1/index.html) static code analysis: `pipenv run coverage-analysis`
 * To generate a coverage report: `pipenv run coverage-report`
-* To run unit tests: `pipenv pug-unit-tests`
-* (To run tests with a specific test environment: `export TEST_ENV=stage` or `export TEST_ENV=prod` and then: `pipenv pug-unit-tests`)
+* To run unit tests: `pipenv run pug-unit-tests`
+* (To run tests with a specific test environment: `export TEST_ENV=stage` or `export TEST_ENV=prod` and then: `pipenv run pug-unit-tests`)
 * (See all available pipenv scripts: `pipenv scripts`)
 
 ## Run locally
 
-1. ([Activate virtual environment](https://github.com/liz-acosta/testing-strategies-for-python/tree/main#setup))
-2. [Spin up the server](https://flask.palletsprojects.com/en/2.3.x/quickstart/) from root directory: `flask run`
-3. Navigate to `http://localhost:5000/` in your browser
+1. To run locally: `pipenv run start-app`
+2. Navigate to `http://localhost:5000/` in your browser
 
 It should look like this:
 
@@ -44,6 +41,7 @@ It should look like this:
 * [Replit for March BayPIGgies Meetup, 21 March 2024, San Jose, CA](https://replit.com/@liz-acosta/2024-developer-week#README.md)  
 
 ### Mocking
+* [Mock It Till You Make It: Mocking in Python's unittest](https://utm.guru/ugVDE)
 * [TalkPython: Testing without dependencies, mocking in Python](https://talkpython.fm/episodes/show/287/testing-without-dependencies-mocking-in-python)
 * [Testing External APIs With Mock Servers](https://realpython.com/testing-third-party-apis-with-mock-servers/)
 * [The Art of Mocking in Software Testing](https://www.methodsandtools.com/archive/archive.php?id=122)

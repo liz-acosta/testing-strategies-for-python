@@ -85,7 +85,7 @@ class TestPug(unittest.TestCase):
     #     test_results = get_pug_facts()
         
     #     self.assertEqual(expected_results, list(test_results.keys()))
-    #     mock_requests.get.assert_called_with(PUG_FACTS_URL)
+    #     mock_requests.get_response.assert_called_with(PUG_FACTS_URL)
     
     # TODO: Uncomment the code below to see what happens when we don't use autospec
     # and try to call a method that does not exist for the Requests class
@@ -103,7 +103,7 @@ class TestPug(unittest.TestCase):
     #     mock_requests.get.assert_called_with(PUG_FACTS_URL)
         
     #     self.assertEqual(expected_results, list(test_results.keys()))
-    #     mock_requests.get.assert_called_with(PUG_FACTS_URL)
+    #     mock_requests.get_response.assert_called_with(PUG_FACTS_URL)
 
     @unittest.skipUnless(TEST_ENV.startswith('prod'), f"Skipping real API test because TEST_ENV: {TEST_ENV}")
     def test_get_pug_facts_with_real_api_call(self):
