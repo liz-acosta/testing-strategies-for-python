@@ -1,0 +1,7 @@
+{% extends 'base.html' %}
+
+{% block content %}
+        <h1>{% block title %} Pug creation error {% endblock %}</h1>
+        <p>You already have a pug named {{ error_message.message}}.</p>
+        <p>Click back button to try again.</p>
+{% endblock %}

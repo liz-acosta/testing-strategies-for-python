@@ -9,7 +9,7 @@ import os
 
 from .pug import Pug, get_pug_facts
 from .form import PugForm, FormError
-from .db import get_db
+from .db import get_db, DBError
 
 # Get the absolute path to the `instance` directory in `testing-strategies`
 project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -35,6 +35,11 @@ def create_app(configfile=None):
     def invalid_api_usage(e):
         error_message = e.to_dict()
         return render_template("formerror.html", error_message=error_message)
+    
+    @app.errorhandler(DBError)
+    def db_error(e):
+        error_message = e.to_dict()
+        return render_template("dberror.html", error_message=error_message)
 
     @app.route("/", methods=["GET", "POST"])
     def index():
@@ -54,7 +59,6 @@ def create_app(configfile=None):
                 session["pug_image"] = pug_image
                 session["puppy_dinner"] = pug.puppy_dinner
 
-                # try:
                 db.execute(
                     "INSERT INTO pug (name, age, home, puppy_dinner, description, image) VALUES (?, ?, ?, ?, ?, ?)",
                     (form.name.data, form.age.data,
@@ -62,13 +66,14 @@ def create_app(configfile=None):
                     form.puppy_dinner.data, pug_description, pug_image),
                 )
                 db.commit()
-                # TODO: Add handling for scenario below
-                # except db.IntegrityError:
-                #     error = f"User {username} is already registered."
 
                 return redirect(url_for("heres_your_pug"))
+        
         except ValueError as err:
             raise FormError(err.args[0])
+        
+        except db.IntegrityError:
+            raise DBError(form.name.data)
 
         return render_template("index.html", form=form)
 
