@@ -2,8 +2,8 @@ import unittest
 import datetime
 import requests
 from unittest.mock import patch, Mock
-from pug import Pug, get_pug_facts
-from utils.mock_server import get_free_port, start_mock_server
+from build_a_pug.pug import Pug, get_pug_facts
+from tests.utils.mock_server import get_free_port, start_mock_server
 import os
 
 # Get TEST_ENV from environment variable

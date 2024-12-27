@@ -7,7 +7,7 @@ import json
 
 import requests
 
-from utils.mock_server import get_free_port, start_mock_server
+from tests.utils.mock_server import get_free_port, start_mock_server
 
 PUG_BREED_INFO_ENDPOINT = "/breeds/a6ea38ed-f692-478e-af29-378d0e2cc270"
 PUG_FACTS_URL = "https://dogapi.dog/api/v2/breeds/a6ea38ed-f692-478e-af29-378d0e2cc270"
