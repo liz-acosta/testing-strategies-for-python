@@ -4,7 +4,7 @@ import requests
 from openai.types.images_response import ImagesResponse
 from openai.types.image import Image
 from unittest.mock import patch, MagicMock
-from pug import Pug, get_pug_facts, PUG_FACTS_URL
+from build_a_pug.pug import Pug, get_pug_facts, PUG_FACTS_URL
 from tests.utils.helpers import is_valid_url
 
 from dotenv import load_dotenv
@@ -64,7 +64,7 @@ class TestPug(unittest.TestCase):
     # This test is also an example of using autospec=True to ensure that any attribute called on the mock
     # is an actual attribute of the mocked method
     # https://docs.python.org/3/library/unittest.mock.html#auto-speccing 
-    @patch('pug.requests', autospec=True)
+    @patch('build_a_pug.pug.requests', autospec=True)
     def test_get_pug_facts(self, mock_requests):
         """Tests get_pug_facts with a mock requests object, checks if the correct URL is called"""
         
@@ -101,7 +101,7 @@ class TestPugWithSetup(unittest.TestCase):
         self.assertEqual(test_result, expected_result, msg="Test for describe_pug failed")
     
     # The following test uses assert_called_with() to verify the mock was called correctly 
-    @patch('pug.client.images', autospec=True)
+    @patch('build_a_pug.pug.client.images', autospec=True)
     def test_build_pug(self, mock_openai):
         """Tests build_pug using mock OpenAI client, checks if the correct arguments are used"""
 
@@ -134,7 +134,7 @@ class TestPugWithSetup(unittest.TestCase):
         test_result = self.test_pug.build_pug()
         self.assertTrue(is_valid_url(test_result), msg="Test for build_pug with real OpenAI client failed")
     
-    @patch('pug.datetime', autospec=True)
+    @patch('build_a_pug.pug.datetime', autospec=True)
     def test_check_for_puppy_dinner(self, mock_datetime):
         """Tests the check_for_puppy_dinner function"""
         

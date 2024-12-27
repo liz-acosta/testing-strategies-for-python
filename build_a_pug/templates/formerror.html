@@ -1,0 +1,8 @@
+{% extends 'base.html' %}
+
+{% block content %}
+        <h1>{% block title %} Form error {% endblock %}</h1>
+        <p>{{ error_message.message }}</p>
+        <p>Please make sure form entries are in correct format.</p>
+        <p>Click back button to try again.</p>
+{% endblock %}
