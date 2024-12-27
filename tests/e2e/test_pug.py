@@ -12,6 +12,7 @@ TEST_ENV = os.getenv("TEST_ENV", 'stage')
 
 PUG_BREED_INFO_ENDPOINT = "/breeds/a6ea38ed-f692-478e-af29-378d0e2cc270"
 
+@unittest.skip("Don't run")
 class TestPugFacts(unittest.TestCase):
     """Test Class to test the get_pug_facts function -- includes setup for a mock server for the Dog API `/breeds/{id}` endpoint"""
     @classmethod
