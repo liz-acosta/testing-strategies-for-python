@@ -9,6 +9,7 @@ import os
 
 from .pug import Pug, get_pug_facts
 from .form import PugForm, FormError
+from .db import get_db
 
 # Get the absolute path to the `instance` directory in `testing-strategies`
 project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -38,6 +39,7 @@ def create_app(configfile=None):
     @app.route("/", methods=["GET", "POST"])
     def index():
         form = PugForm()
+        db = get_db()
         try:
             if request.method == "POST" and form.validate():
                 pug = Pug(
@@ -51,6 +53,18 @@ def create_app(configfile=None):
                 session["pug_description"] = pug_description
                 session["pug_image"] = pug_image
                 session["puppy_dinner"] = pug.puppy_dinner
+
+                # try:
+                db.execute(
+                    "INSERT INTO pug (name, age, home, puppy_dinner, description, image) VALUES (?, ?, ?, ?, ?, ?)",
+                    (form.name.data, form.age.data,
+                    form.home.data,
+                    form.puppy_dinner.data, pug_description, pug_image),
+                )
+                db.commit()
+                # TODO: Add handling for scenario below
+                # except db.IntegrityError:
+                #     error = f"User {username} is already registered."
 
                 return redirect(url_for("heres_your_pug"))
         except ValueError as err:
