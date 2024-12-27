@@ -5,3 +5,4 @@
 *.pyc
 
 .vscode/
+instance/build_a_pug.sqlite

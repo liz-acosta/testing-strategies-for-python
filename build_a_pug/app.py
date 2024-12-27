@@ -5,16 +5,30 @@ from wtforms.fields import *
 
 import requests
 import json
+import os
 
 from .pug import Pug, get_pug_facts
 from .form import PugForm, FormError
 
+# Get the absolute path to the `instance` directory in `testing-strategies`
+project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+instance_path = os.path.join(project_root, 'instance')
 
 def create_app(configfile=None):
-    app = Flask(__name__)
+    app = Flask(__name__, instance_path=instance_path, instance_relative_config=True)
     bootstrap = Bootstrap5(app)
     app.config["SECRET_KEY"] = "any secret string"
     app.config["BOOTSTRAP_BOOTSWATCH_THEME"] = "minty"
+    app.config["DATABASE"] = os.path.join(app.instance_path, 'build_a_pug.sqlite')
+
+    # ensure the instance folder exists
+    try:
+        os.makedirs(app.instance_path)
+    except OSError:
+        pass
+
+    from . import db
+    db.init_app(app)
 
     @app.errorhandler(FormError)
     def invalid_api_usage(e):
@@ -71,7 +85,3 @@ def create_app(configfile=None):
         return render_template("pugfacts.html", pug_breed_facts=pug_breed_facts)
 
     return app
-
-
-if __name__ == "__main__":
-    create_app().run(debug=True)
