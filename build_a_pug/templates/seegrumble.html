@@ -1,0 +1,38 @@
+{% from 'bootstrap5/form.html' import render_form %}
+{% from 'bootstrap4/utils.html' import render_static %}
+
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="bs-docs-section">
+  <div class="row">
+      <div class="col-lg-6">
+        <div class="bs-component">
+          <h1>Here is your grumble</h1>
+        </div>
+      </div>
+  </div>
+
+  {% for pug in grumble %}
+
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="bs-component">
+          <img src="{{ pug.image }}" class="img-fluid" style="max-width: 100%; height: auto">
+        </div>
+      </div>
+
+      <div class="col-lg-6">
+        <div class="bs-component">
+          <h2>{{ pug.name }}</h2>
+          <p class="lead">{{ pug.description }}</p>
+          <p class="lead">{{ pug.name }} eats puppy dinner at {{ pug.puppy_dinner }}</p>
+        </div>
+      </div>
+      
+  </div>
+</div>
+{% endfor %}
+
+{% endblock %}

@@ -30,7 +30,7 @@ This example code uses Python's [unittest](https://docs.python.org/3/library/uni
 
 It should look like this:
 
-![alt text](static/img/build-a-pug_screenshot.png)
+![alt text](build_a_pug/static/img/build-a-pug_screenshot.png)
 
 ## Resources
 
@@ -48,4 +48,4 @@ It should look like this:
 * [“Don’t Mock What You Don’t Own” in 5 Minutes](https://hynek.me/articles/what-to-mock-in-5-mins/)
 
 ## Enjoy!
-![alt text](static/img/money-pug.gif)
+![alt text](build_a_pug/static/img/money-pug.gif)

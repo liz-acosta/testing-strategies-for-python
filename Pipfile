@@ -18,6 +18,7 @@ requests = "*"
 python_version = "3.11"
 
 [scripts]
+init-db = "flask --app build_a_pug/app init-db"
 start-app = "flask --app build_a_pug/app.py run"
 pug-unit-tests = "python -m unittest tests.unit.test_pug -v"
 test-pug-class = "python -m unittest test_pug.TestPug.test_pug_instance_successful"

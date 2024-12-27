@@ -84,6 +84,19 @@ def create_app(configfile=None):
             pug_description=session["pug_description"],
             pug_image=session["pug_image"],
         )
+    
+    @app.route("/seegrumble", methods=["GET", "POST"])
+    def see_grumble():
+        grumble = [{"name": "Gary",
+                    "description": "Gary is the sweetest boy",
+                    "image": "static/img/money-pug.gif",
+                    "puppy_dinner": "5:00 PM"
+
+        },]
+        return render_template(
+            "seegrumble.html",
+            grumble=grumble,
+        )
 
     @app.route("/puppydinner", methods=["GET", "POST"])
     def puppy_dinner():
