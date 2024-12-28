@@ -8,7 +8,7 @@ import requests
 import json
 import os
 
-from .pug import Pug, get_pug_facts, create_pug, get_grumble
+from .pug import Pug, get_pug_facts, PugDB
 from .form import PugForm, FormError
 from .db import DBError
 
@@ -23,12 +23,15 @@ def create_app(configfile=None):
     app.config["BOOTSTRAP_BOOTSWATCH_THEME"] = "minty"
     app.config["DATABASE"] = os.path.join(app.instance_path, 'build_a_pug.sqlite')
 
-    # ensure the instance folder exists
+
+    # Create the database connection
+    # First ensure the instance folder exists
     try:
         os.makedirs(app.instance_path)
     except OSError:
         pass
 
+    # Then initialize the database if it doesn't exist
     from . import db
     db.init_app(app)
 
@@ -63,7 +66,8 @@ def create_app(configfile=None):
                 pug.description = pug_description
                 pug.image = pug_image
 
-                db = create_pug(pug)
+                with app.app_context():
+                    PugDB.create_pug(pug)
 
                 return redirect(url_for("heres_your_pug"))
         
@@ -85,7 +89,10 @@ def create_app(configfile=None):
     
     @app.route("/seegrumble", methods=["GET", "POST"])
     def see_grumble():
-        grumble = get_grumble()
+        
+        with app.app_context():
+            grumble = PugDB.get_grumble()
+        
         return render_template(
             "seegrumble.html",
             grumble=grumble,

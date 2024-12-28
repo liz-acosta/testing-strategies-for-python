@@ -94,25 +94,39 @@ def get_pug_facts():
     return pug_facts
 
 
-def create_pug(pug):
-    db = get_db()
-    try:
-        db.execute(
-        "INSERT INTO pug (name, age, home, puppy_dinner, description, image) VALUES (?, ?, ?, ?, ?, ?)",
-        (pug.name, pug.age, pug.home, pug.puppy_dinner, pug.description, pug.image),
-    )
-        db.commit()
-    except db.IntegrityError:
-        raise db.IntegrityError
+class PugDB:
+    """Perform operations on the Pug database table"""
     
-def get_grumble():
-    db = get_db()
-    try:
-        grumble = db.execute(
-        "SELECT * FROM PUG").fetchall()
+    def __init__(self):
+        pass
+    
+    @classmethod
+    def create_pug(cls, pug):
+        """Insert a pug into the Pug table"""
+
+        db = get_db()
+
+        query = "INSERT INTO pug (name, age, home, puppy_dinner, description, image) VALUES (?, ?, ?, ?, ?, ?)"    
+        
+        try:
+            db.execute(query,
+            (pug.name, pug.age, pug.home, pug.puppy_dinner, pug.description, pug.image),
+        )
+            db.commit()
+        
+        except db.IntegrityError:
+            raise db.IntegrityError
+        
+    @classmethod
+    def get_grumble(cls):
+        """Get all the pugs"""
+        
+        db = get_db()
+        
+        query = "SELECT * FROM PUG"
+        grumble = db.execute(query).fetchall()
+        
         return grumble
-    except db.IntegrityError:
-        raise db.IntegrityError
 
 
 def demo_pug():
