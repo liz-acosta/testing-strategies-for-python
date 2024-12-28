@@ -7,6 +7,8 @@ import requests
 
 
 from dotenv import load_dotenv
+from .db import get_db, DBError
+
 import os
 
 # Load secrets from .env file
@@ -90,6 +92,27 @@ def get_pug_facts():
     }
 
     return pug_facts
+
+
+def create_pug(pug):
+    db = get_db()
+    try:
+        db.execute(
+        "INSERT INTO pug (name, age, home, puppy_dinner, description, image) VALUES (?, ?, ?, ?, ?, ?)",
+        (pug.name, pug.age, pug.home, pug.puppy_dinner, pug.description, pug.image),
+    )
+        db.commit()
+    except db.IntegrityError:
+        raise db.IntegrityError
+    
+def get_grumble():
+    db = get_db()
+    try:
+        grumble = db.execute(
+        "SELECT * FROM PUG").fetchall()
+        return grumble
+    except db.IntegrityError:
+        raise db.IntegrityError
 
 
 def demo_pug():
