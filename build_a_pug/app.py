@@ -10,7 +10,7 @@ import os
 
 from .pug import Pug, get_pug_facts, PugDB
 from .form import PugForm, FormError
-from .db import DBError
+from .db import DBError, get_db
 
 # Get the absolute path to the `instance` directory in `testing-strategies`
 project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -67,7 +67,8 @@ def create_app(configfile=None):
                 pug.image = pug_image
 
                 with app.app_context():
-                    PugDB.create_pug(pug)
+                    db = get_db()
+                    PugDB.create_pug(db, pug)
 
                 return redirect(url_for("heres_your_pug"))
         
@@ -91,7 +92,8 @@ def create_app(configfile=None):
     def see_grumble():
         
         with app.app_context():
-            grumble = PugDB.get_grumble()
+            db = get_db()
+            grumble = PugDB.get_grumble(db)
         
         return render_template(
             "seegrumble.html",

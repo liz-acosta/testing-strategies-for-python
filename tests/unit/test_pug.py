@@ -1,10 +1,11 @@
 import unittest
 import datetime
 import requests
+import sqlite3
 from openai.types.images_response import ImagesResponse
 from openai.types.image import Image
 from unittest.mock import patch, MagicMock
-from build_a_pug.pug import Pug, get_pug_facts, PUG_FACTS_URL
+from build_a_pug.pug import Pug, PugDB, get_pug_facts, PUG_FACTS_URL
 from tests.utils.helpers import is_valid_url
 
 from dotenv import load_dotenv
@@ -151,6 +152,48 @@ class TestPugWithSetup(unittest.TestCase):
                 test_result = Pug.check_for_puppy_dinner(self.test_pug.puppy_dinner)
                 self.assertEqual(test_result, data['expected_result'],
                 msg="Test for check_for_puppy_dinner failed")
+
+
+class TestPugDB(unittest.TestCase):
+    """Test class for tests related to the Pug database"""
+
+    def setUp(self):
+        """Set up an in-memory test database"""
+        self.connection = sqlite3.connect(":memory:")  # Create an in-memory database
+        self.connection.row_factory = sqlite3.Row  # Optional: Access rows as dictionaries
+        self.cursor = self.connection.cursor()
+        
+        with open("build_a_pug/schema.sql", "r") as f:
+            self.connection.executescript(f.read())
+            # self.connection.commit()
+    
+    # def tearDown(self):
+    #     """Clean up by closing the connection."""
+    #     self.connection.close()
+
+    
+    def test_create_pug(self):
+        """Test to see if a pug row is successfully created in the database"""
+
+        test_pug = Pug("bob", "14", "San Francisco", "5:00 PM")
+        test_pug.description = "Gary is the best pug."
+        test_pug.image = "cute_pug.jpg"
+
+        test_db = self.connection
+        
+        test_results = PugDB.create_pug(test_db, test_pug)
+
+        blep = self.cursor.execute("SELECT * FROM pug").fetchall()
+
+        self.assertEqual(blep[0]["name"], "YASSS")  # Example assertion
+
+    # def test_test(self):
+    #     """Example test: Fetch data from the test database."""
+    #     self.cursor.execute("SELECT * FROM pug").fetchall()
+    #     row = self.cursor.fetchone()
+    #     self.assertEqual(row["name"], "Test User")  # Example assertion
+
+
 
 if __name__ == '__main__':
     unittest.main()

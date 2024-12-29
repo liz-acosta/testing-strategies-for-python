@@ -95,16 +95,14 @@ def get_pug_facts():
 
 
 class PugDB:
-    """Perform operations on the Pug database table"""
+    """Perform operations on the Pug database"""
     
     def __init__(self):
         pass
     
     @classmethod
-    def create_pug(cls, pug):
+    def create_pug(cls, db, pug):
         """Insert a pug into the Pug table"""
-
-        db = get_db()
 
         query = "INSERT INTO pug (name, age, home, puppy_dinner, description, image) VALUES (?, ?, ?, ?, ?, ?)"    
         
@@ -118,10 +116,8 @@ class PugDB:
             raise db.IntegrityError
         
     @classmethod
-    def get_grumble(cls):
+    def get_grumble(cls, db):
         """Get all the pugs"""
-        
-        db = get_db()
         
         query = "SELECT * FROM PUG"
         grumble = db.execute(query).fetchall()

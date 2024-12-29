@@ -2,6 +2,7 @@ import sqlite3
 from datetime import datetime
 
 import click
+import os
 from flask import current_app, g
 
 def get_db():
@@ -33,6 +34,18 @@ def init_db_command():
     init_db()
     click.echo('Initialized the database.')
 
+@click.command('delete-db')
+def delete_db_command():
+    """Delete the SQLite database file."""
+    
+    database_file = current_app.config['DATABASE']
+    
+    if database_file:
+        os.remove(database_file)
+        click.echo(f'Deleted the database file: {database_file}')
+    else:
+        click.echo('No database file found to delete.')
+
 sqlite3.register_converter(
     "timestamp", lambda v: datetime.strptime(
                 v.decode(), "%H:%M"
@@ -42,6 +55,7 @@ sqlite3.register_converter(
 def init_app(app):
     app.teardown_appcontext(close_db)
     app.cli.add_command(init_db_command)
+    app.cli.add_command(delete_db_command)
 
 class DBError(Exception):
     """A database error."""
