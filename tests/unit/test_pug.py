@@ -16,6 +16,7 @@ load_dotenv()
 # Get TEST_ENV from environment variable
 # Used below to determine tests to run or skip 
 TEST_ENV = os.getenv("TEST_ENV", 'dev')
+TEST_DATABASE_FILEPATH = "tests/test_db.sqlite"
 
 class TestPug(unittest.TestCase):
     """Test Class for Class Pug"""
@@ -159,7 +160,7 @@ class TestPugDB(unittest.TestCase):
 
     def setUp(self):
         """Set up an in-memory test database"""
-        self.connection = sqlite3.connect(":memory:")  # Create an in-memory database
+        self.connection = sqlite3.connect(TEST_DATABASE_FILEPATH) 
         self.connection.row_factory = sqlite3.Row  # Optional: Access rows as dictionaries
         self.cursor = self.connection.cursor()
         
@@ -167,9 +168,10 @@ class TestPugDB(unittest.TestCase):
             self.connection.executescript(f.read())
             # self.connection.commit()
     
-    # def tearDown(self):
-    #     """Clean up by closing the connection."""
-    #     self.connection.close()
+    def tearDown(self):
+        """Clean up by closing the connection."""
+        self.connection.close()
+        os.remove(TEST_DATABASE_FILEPATH)
 
     
     def test_create_pug(self):
