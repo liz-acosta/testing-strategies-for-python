@@ -14,15 +14,15 @@ from .db import DBError, get_db
 
 # Get the absolute path to the `instance` directory in `testing-strategies`
 project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-instance_path = os.path.join(project_root, 'instance')
+instance_path = os.path.join(project_root, "instance")
+
 
 def create_app(configfile=None):
     app = Flask(__name__, instance_path=instance_path, instance_relative_config=True)
     bootstrap = Bootstrap5(app)
     app.config["SECRET_KEY"] = "any secret string"
     app.config["BOOTSTRAP_BOOTSWATCH_THEME"] = "minty"
-    app.config["DATABASE"] = os.path.join(app.instance_path, 'build_a_pug.sqlite')
-
+    app.config["DATABASE"] = os.path.join(app.instance_path, "build_a_pug.sqlite")
 
     # Create the database connection
     # First ensure the instance folder exists
@@ -33,13 +33,14 @@ def create_app(configfile=None):
 
     # Then initialize the database if it doesn't exist
     from . import db
+
     db.init_app(app)
 
     @app.errorhandler(FormError)
     def invalid_api_usage(e):
         error_message = e.to_dict()
         return render_template("formerror.html", error_message=error_message)
-    
+
     @app.errorhandler(DBError)
     def db_error(e):
         error_message = e.to_dict()
@@ -71,10 +72,10 @@ def create_app(configfile=None):
                     PugDB.create_pug(db, pug)
 
                 return redirect(url_for("heres_your_pug"))
-        
+
         except ValueError as err:
             raise FormError(err.args[0])
-        
+
         except IntegrityError:
             raise DBError(form.name.data)
 
@@ -87,14 +88,14 @@ def create_app(configfile=None):
             pug_description=session["pug_description"],
             pug_image=session["pug_image"],
         )
-    
+
     @app.route("/seegrumble", methods=["GET", "POST"])
     def see_grumble():
-        
+
         with app.app_context():
             db = get_db()
             grumble = PugDB.get_grumble(db)
-        
+
         return render_template(
             "seegrumble.html",
             grumble=grumble,

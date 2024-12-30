@@ -80,7 +80,7 @@ class Pug:
 
 
 def get_pug_facts():
-    """"Get pug facts from Dog API"""
+    """ "Get pug facts from Dog API"""
 
     pug_breed_response = requests.get(PUG_FACTS_URL)
     pug_breed_facts = pug_breed_response.json()["data"]["attributes"]
@@ -96,32 +96,40 @@ def get_pug_facts():
 
 class PugDB:
     """Perform operations on the Pug database"""
-    
+
     def __init__(self):
         pass
-    
+
     @classmethod
     def create_pug(cls, db, pug):
         """Insert a pug into the Pug table"""
 
-        query = "INSERT INTO pug (name, age, home, puppy_dinner, description, image) VALUES (?, ?, ?, ?, ?, ?)"    
-        
+        query = "INSERT INTO pug (name, age, home, puppy_dinner, description, image) VALUES (?, ?, ?, ?, ?, ?)"
+
         try:
-            db.execute(query,
-            (pug.name, pug.age, pug.home, pug.puppy_dinner, pug.description, pug.image),
-        )
+            db.execute(
+                query,
+                (
+                    pug.name,
+                    pug.age,
+                    pug.home,
+                    pug.puppy_dinner,
+                    pug.description,
+                    pug.image,
+                ),
+            )
             db.commit()
-        
+
         except db.IntegrityError:
             raise db.IntegrityError
-        
+
     @classmethod
     def get_grumble(cls, db):
         """Get all the pugs"""
-        
+
         query = "SELECT * FROM PUG"
         grumble = db.execute(query).fetchall()
-        
+
         return grumble
 
 
