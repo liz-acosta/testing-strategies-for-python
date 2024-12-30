@@ -1,15 +1,14 @@
 from datetime import datetime
 import random
 import openai
-from openai import OpenAI
+import os
 import json
 import requests
 
-
+from openai import OpenAI
 from dotenv import load_dotenv
 from .db import get_db, DBError
 
-import os
 
 # Load secrets from .env file
 load_dotenv()
@@ -95,14 +94,14 @@ def get_pug_facts():
 
 
 class PugDB:
-    """Perform operations on the Pug database"""
+    """Perform operations on the pug database table"""
 
     def __init__(self):
         pass
 
     @classmethod
     def create_pug(cls, db, pug):
-        """Insert a pug into the Pug table"""
+        """Insert a pug into the pug table"""
 
         query = "INSERT INTO pug (name, age, home, puppy_dinner, description, image) VALUES (?, ?, ?, ?, ?, ?)"
 

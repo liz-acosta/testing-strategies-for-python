@@ -2,6 +2,8 @@ import unittest
 import datetime
 import requests
 import sqlite3
+import os
+
 from openai.types.images_response import ImagesResponse
 from openai.types.image import Image
 from unittest.mock import patch, MagicMock
@@ -10,7 +12,7 @@ from tests.utils.helpers import is_valid_url
 
 from dotenv import load_dotenv
 from colorama import init, Fore
-import os
+
 
 load_dotenv()
 init(autoreset=True)
@@ -19,6 +21,66 @@ init(autoreset=True)
 # Used below to determine tests to run or skip
 TEST_ENV = os.getenv("TEST_ENV", "dev")
 TEST_DATABASE_FILEPATH = "tests/test_db.sqlite"
+
+
+# The following two methods are module-level test fixtures
+# Uncomment the code below and comment out the classes: `TestPugDBWithClassLevelFixtures` and `TestPugDBWithMethodLevelFixtures`
+# to see how the database tests are affected
+# A module-level test fixture that
+# creates and inserts data into a sqlite database before all test methods
+# def setUpModule():
+#     """Create a test database before each test method in this class"""
+
+#     global connection
+#     connection = sqlite3.connect(TEST_DATABASE_FILEPATH)
+#     connection.row_factory = sqlite3.Row
+
+#     test_pug_lily = Pug("Lily", "6", "San Francisco", "4:00 PM")
+#     test_pug_lily.description = "Lily is the best pug"
+#     test_pug_lily.image = "lily_pug.jpg"
+
+#     test_pug_fiona = Pug("Fiona", "2", "San Francisco", "4:00 PM")
+#     test_pug_fiona.description = "Fiona is the best pug"
+#     test_pug_fiona.image = "sweet_fiona.jpg"
+
+#     test_pugs = [test_pug_lily, test_pug_fiona]
+
+#     with open("build_a_pug/schema.sql", "r") as f:
+#         connection.executescript(f.read())
+
+#     query = "INSERT INTO pug (name, age, home, puppy_dinner, description, image) VALUES (?, ?, ?, ?, ?, ?)"
+#     for pug in test_pugs:
+#         connection.cursor().execute(
+#             query,
+#             (
+#                 pug.name,
+#                 pug.age,
+#                 pug.home,
+#                 pug.puppy_dinner,
+#                 pug.description,
+#                 pug.image,
+#             ),
+#         )
+
+#         connection.commit()
+
+#     print(
+#         Fore.GREEN
+#         + f"Test database: {TEST_DATABASE_FILEPATH} connection created and test data inserted"
+#     )
+
+
+# # A module-level test fixture that
+# # closes and deletes the previously created sqlite database after all test methods have been run
+# def tearDownModule():
+#     """Close and delete the test database after  each test method in this class"""
+
+#     connection.close()
+#     os.remove(TEST_DATABASE_FILEPATH)
+#     print(
+#         Fore.RED
+#         + f"Test database: {TEST_DATABASE_FILEPATH} connection closed and deleted"
+#     )
 
 
 class TestPug(unittest.TestCase):
@@ -202,17 +264,16 @@ class TestPugWithSetup(unittest.TestCase):
                 )
 
 
-class TestPugDB(unittest.TestCase):
+class TestPugDBWithMethodLevelFixtures(unittest.TestCase):
     """Test class for tests related to the pug database"""
 
+    # A method-level test fixture that
+    # creates and inserts data into a sqlite database before each test in this class
     def setUp(self):
-        """Create a test database before every test method in this class"""
+        """Create a test database before each test method in this class"""
 
         self.connection = sqlite3.connect(TEST_DATABASE_FILEPATH)
-        self.connection.row_factory = (
-            sqlite3.Row
-        )  # Optional: Access rows as dictionaries
-        self.cursor = self.connection.cursor()
+        self.connection.row_factory = sqlite3.Row
 
         test_pug_lily = Pug("Lily", "6", "San Francisco", "4:00 PM")
         test_pug_lily.description = "Lily is the best pug"
@@ -229,7 +290,7 @@ class TestPugDB(unittest.TestCase):
 
         query = "INSERT INTO pug (name, age, home, puppy_dinner, description, image) VALUES (?, ?, ?, ?, ?, ?)"
         for pug in test_pugs:
-            self.connection.execute(
+            self.connection.cursor().execute(
                 query,
                 (
                     pug.name,
@@ -248,8 +309,10 @@ class TestPugDB(unittest.TestCase):
             + f"Test database: {TEST_DATABASE_FILEPATH} connection created and test data inserted"
         )
 
+    # A method-level test fixture that
+    # closes and deletes the previously created sqlite database after each test in this class
     def tearDown(self):
-        """Close and delete the test database before after test method in this class"""
+        """Close and delete the test database after  each test method in this class"""
 
         self.connection.close()
         os.remove(TEST_DATABASE_FILEPATH)
@@ -259,7 +322,7 @@ class TestPugDB(unittest.TestCase):
         )
 
     def test_create_pug(self):
-        """Test to see if a pug row is successfully created in the database"""
+        """Test to see if a pug row is successfully created in the database table"""
 
         test_pug = Pug("Gary", "14", "San Francisco", "5:00 PM")
         test_pug.description = "Gary is the best pug."
@@ -269,9 +332,11 @@ class TestPugDB(unittest.TestCase):
 
         PugDB.create_pug(test_db, test_pug)
 
-        test_results = self.cursor.execute(
-            "SELECT * FROM pug WHERE NAME = 'Gary'"
-        ).fetchone()
+        test_results = (
+            self.connection.cursor()
+            .execute("SELECT * FROM pug WHERE NAME = 'Gary'")
+            .fetchone()
+        )
 
         self.assertEqual(test_results["name"], "Gary")
 
@@ -289,12 +354,160 @@ class TestPugDB(unittest.TestCase):
             self.assertEqual(type(test_e), self.connection.IntegrityError)
 
     def test_get_grumble(self):
-        """Test to see if all the pugs are retrieved from the database"""
+        """Test to see if all the pugs are retrieved from the database table"""
 
         test_db = self.connection
         test_results = PugDB.get_grumble(test_db)
-        test_results = self.cursor.execute("SELECT * FROM pug").fetchall()
         self.assertEqual(len(test_results), 2)
+
+
+# The following test case class uses class-level fixtures instead of method-level fixtures
+# Comment out the test case above and uncomment the test case below
+# then run the tests again to see how the results are affected
+# class TestPugDBWithClassLevelFixtures(unittest.TestCase):
+#     """Test class for tests related to the pug database"""
+
+#     # A class-level test fixture that
+#     # creates and inserts data into a sqlite database and then runs all the test methods
+#     @classmethod
+#     def setUpClass(cls):
+#         """Create a test database before running all the test methods"""
+
+#         cls.connection = sqlite3.connect(TEST_DATABASE_FILEPATH)
+#         cls.connection.row_factory = sqlite3.Row
+
+#         test_pug_lily = Pug("Lily", "6", "San Francisco", "4:00 PM")
+#         test_pug_lily.description = "Lily is the best pug"
+#         test_pug_lily.image = "lily_pug.jpg"
+
+#         test_pug_fiona = Pug("Fiona", "2", "San Francisco", "4:00 PM")
+#         test_pug_fiona.description = "Fiona is the best pug"
+#         test_pug_fiona.image = "sweet_fiona.jpg"
+
+#         test_pugs = [test_pug_lily, test_pug_fiona]
+
+#         with open("build_a_pug/schema.sql", "r") as f:
+#             cls.connection.executescript(f.read())
+
+#         query = "INSERT INTO pug (name, age, home, puppy_dinner, description, image) VALUES (?, ?, ?, ?, ?, ?)"
+#         for pug in test_pugs:
+#             cls.connection.cursor().execute(
+#                 query,
+#                 (
+#                     pug.name,
+#                     pug.age,
+#                     pug.home,
+#                     pug.puppy_dinner,
+#                     pug.description,
+#                     pug.image,
+#                 ),
+#             )
+
+#             cls.connection.commit()
+
+#         print(
+#             Fore.GREEN
+#             + f"Test database: {TEST_DATABASE_FILEPATH} connection created and test data inserted"
+#         )
+
+#     # A class-level test fixture that
+#     # closes and deletes the previously created sqlite database after all the test methods have been run
+#     @classmethod
+#     def tearDownClass(cls):
+#         """Close and delete the test database after all the test methods have been run"""
+
+#         cls.connection.close()
+#         os.remove(TEST_DATABASE_FILEPATH)
+#         print(
+#             Fore.RED
+#             + f"Test database: {TEST_DATABASE_FILEPATH} connection closed and deleted"
+#         )
+
+#     def test_create_pug(self):
+#         """Test to see if a pug row is successfully created in the database table"""
+
+#         test_pug = Pug("Gary", "14", "San Francisco", "5:00 PM")
+#         test_pug.description = "Gary is the best pug."
+#         test_pug.image = "cute_pug.jpg"
+
+#         test_db = self.connection
+
+#         PugDB.create_pug(test_db, test_pug)
+
+#         test_results = (
+#             self.connection.cursor()
+#             .execute("SELECT * FROM pug WHERE NAME = 'Gary'")
+#             .fetchone()
+#         )
+
+#         self.assertEqual(test_results["name"], "Gary")
+
+#     def test_create_pug_with_exception(self):
+#         """Test to see if an IntegrityError is raised when attempting to create an existing pug"""
+
+#         test_pug = Pug("Lily", "14", "San Francisco", "5:00 PM")
+#         test_pug.description = "Lily is the cutest pug."
+#         test_pug.image = "cute_pug.jpg"
+
+#         test_db = self.connection
+
+#         with self.assertRaises(Exception) as test_e:
+#             PugDB.create_pug(test_db, test_pug)
+#             self.assertEqual(type(test_e), self.connection.IntegrityError)
+
+#     def test_get_grumble(self):
+#         """Test to see if all the pugs are retrieved from the database table"""
+
+#         test_db = self.connection
+#         test_results = PugDB.get_grumble(test_db)
+#         self.assertEqual(len(test_results), 2)
+
+
+# The following test case class uses module-level fixtures instead of method-level or class-level fixtures
+# Comment out the test cases above and uncomment the test case below
+# and uncomment the module-level fixtures at the very top
+# then run the tests again to see how the results are affected
+# class TestPugDBWithModuleLevelFixtures(unittest.TestCase):
+#     """Test class for tests related to the pug database"""
+
+#     def test_create_pug(self):
+#         """Test to see if a pug row is successfully created in the database table"""
+
+#         test_pug = Pug("Gary", "14", "San Francisco", "5:00 PM")
+#         test_pug.description = "Gary is the best pug."
+#         test_pug.image = "cute_pug.jpg"
+
+#         test_db = connection
+
+#         PugDB.create_pug(test_db, test_pug)
+
+#         test_results = (
+#             connection.cursor()
+#             .execute("SELECT * FROM pug WHERE NAME = 'Gary'")
+#             .fetchone()
+#         )
+
+#         self.assertEqual(test_results["name"], "Gary")
+
+#     def test_create_pug_with_exception(self):
+#         """Test to see if an IntegrityError is raised when attempting to create an existing pug"""
+
+#         test_pug = Pug("Lily", "14", "San Francisco", "5:00 PM")
+#         test_pug.description = "Lily is the cutest pug."
+#         test_pug.image = "cute_pug.jpg"
+
+#         test_db = connection
+
+#         with self.assertRaises(Exception) as test_e:
+#             PugDB.create_pug(test_db, test_pug)
+#             self.assertEqual(type(test_e), connection.IntegrityError)
+
+#     def test_get_grumble(self):
+#         """Test to see if all the pugs are retrieved from the database table"""
+
+#         test_db = connection
+#         test_results = PugDB.get_grumble(test_db)
+#         self.assertEqual(len(test_results), 2)
 
 
 if __name__ == "__main__":

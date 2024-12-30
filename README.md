@@ -1,6 +1,6 @@
 # Example Code for Testing Strategies for Python
 
-This example code uses Python's [unittest](https://docs.python.org/3/library/unittest.html?highlight=discover#) to demonstrate how to use the bultin framework to write and run unit tests for a simple pug class. The app runs with [Flask](https://flask.palletsprojects.com/en/2.3.x/quickstart/) with [Bootstrap-Flask](https://bootstrap-flask.readthedocs.io/en/stable/) (using the [Bootswatch Minty theme](https://bootswatch.com/minty/)) and incorporates the [OpenAI API](https://platform.openai.com/).
+This example code uses Python's [unittest](https://docs.python.org/3/library/unittest.html?highlight=discover#) to demonstrate how to use the builtin framework to write and run unit tests for a simple pug class. The app runs with [Flask](https://flask.palletsprojects.com/en/2.3.x/quickstart/) with [Bootstrap-Flask](https://bootstrap-flask.readthedocs.io/en/stable/) (using the [Bootswatch Minty theme](https://bootswatch.com/minty/)) and incorporates the [OpenAI API](https://platform.openai.com/).
 
 ## Prerequisites
 
@@ -8,13 +8,32 @@ This example code uses Python's [unittest](https://docs.python.org/3/library/uni
 * [OpenAI API key and organization](https://openai.com/blog/openai-api)
 * Python 3+
 
+### Caveats and troubleshooting
+
+**Broken images**
+
+This version of the Build-a-Pug app saves each new pug created to a local Sqlite database. The pugs can then be viewed by navigating to `See Your Grumble` (which is what a group of pugs is called). Because OpenAI provides access to generated images for a limited duration, depending on when you view your grumble, some images may return an invalid signature authentication error. This is because the images are not being saved anywhere and implementing that functionality felt out of scope for this particular demo.
+
+To fix this, you can delete the database and initialize a new one. (See setup instructions below.) This will, however, require recreating all your pugs.
+
 ## Setup
 
 1. Install dependencies from Pipfile.lock: `pipenv install`
 2. [Add environment variables](https://pypi.org/project/python-dotenv/#getting-started) by renaming `.env_template` to `.env` ...
 3. ... and replacing placeholder secrets with real secrets
+4. Initialize the [Sqlite](https://www.sqlite.org/index.html) database: `pipenv run init-db`
+5. (Delete the database: `pipenv run delete-db`) 
 
-## Run tests
+## Run the app locally
+
+1. To run the app locally: `pipenv run start-app`
+2. Navigate to `http://localhost:5000/` in your browser
+
+It should look like this:
+
+![alt text](build_a_pug/static/img/build-a-pug_screenshot.png)
+
+## Run the tests
 
 * To [discover](https://docs.python.org/3/library/unittest.html?highlight=discover#unittest.TestLoader.discover) and run the tests: `pipenv run tests`
 * To execute a [coverage](https://coverage.readthedocs.io/en/7.3.1/index.html) static code analysis: `pipenv run coverage-analysis`
@@ -22,15 +41,6 @@ This example code uses Python's [unittest](https://docs.python.org/3/library/uni
 * To run unit tests: `pipenv run pug-unit-tests`
 * (To run tests with a specific test environment: `export TEST_ENV=stage` or `export TEST_ENV=prod` and then: `pipenv run pug-unit-tests`)
 * (See all available pipenv scripts: `pipenv scripts`)
-
-## Run locally
-
-1. To run locally: `pipenv run start-app`
-2. Navigate to `http://localhost:5000/` in your browser
-
-It should look like this:
-
-![alt text](build_a_pug/static/img/build-a-pug_screenshot.png)
 
 ## Resources
 

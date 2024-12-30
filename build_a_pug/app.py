@@ -10,7 +10,7 @@ import os
 
 from .pug import Pug, get_pug_facts, PugDB
 from .form import PugForm, FormError
-from .db import DBError, get_db
+from .db import DBError, get_db, init_app
 
 # Get the absolute path to the `instance` directory in `testing-strategies`
 project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -32,9 +32,8 @@ def create_app(configfile=None):
         pass
 
     # Then initialize the database if it doesn't exist
-    from . import db
 
-    db.init_app(app)
+    init_app(app)
 
     @app.errorhandler(FormError)
     def invalid_api_usage(e):
