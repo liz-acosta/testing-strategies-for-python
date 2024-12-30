@@ -9,9 +9,11 @@ from build_a_pug.pug import Pug, PugDB, get_pug_facts, PUG_FACTS_URL
 from tests.utils.helpers import is_valid_url
 
 from dotenv import load_dotenv
+from colorama import init, Fore
 import os
 
 load_dotenv()
+init(autoreset=True)
 
 # Get TEST_ENV from environment variable
 # Used below to determine tests to run or skip 
@@ -156,44 +158,82 @@ class TestPugWithSetup(unittest.TestCase):
 
 
 class TestPugDB(unittest.TestCase):
-    """Test class for tests related to the Pug database"""
+    """Test class for tests related to the pug database"""
 
     def setUp(self):
-        """Set up an in-memory test database"""
+        """Create a test database before every test method in this class"""
+        
         self.connection = sqlite3.connect(TEST_DATABASE_FILEPATH) 
         self.connection.row_factory = sqlite3.Row  # Optional: Access rows as dictionaries
         self.cursor = self.connection.cursor()
         
+        test_pug_lily = Pug("Lily", "6", "San Francisco", "4:00 PM")
+        test_pug_lily.description = "Lily is the best pug"
+        test_pug_lily.image = "lily_pug.jpg"
+
+        test_pug_fiona = Pug("Fiona", "2", "San Francisco", "4:00 PM")
+        test_pug_fiona.description = "Fiona is the best pug"
+        test_pug_fiona.image = "sweet_fiona.jpg"
+
+        test_pugs = [test_pug_lily, test_pug_fiona]
+
         with open("build_a_pug/schema.sql", "r") as f:
             self.connection.executescript(f.read())
-            # self.connection.commit()
-    
+        
+        query = "INSERT INTO pug (name, age, home, puppy_dinner, description, image) VALUES (?, ?, ?, ?, ?, ?)"   
+        for pug in test_pugs:
+            self.connection.execute(query, (pug.name, pug.age, pug.home, pug.puppy_dinner, pug.description, pug.image))
+
+            self.connection.commit()
+        
+        print(Fore.GREEN + f"Test database: {TEST_DATABASE_FILEPATH} connection created and test data inserted")
+            
     def tearDown(self):
-        """Clean up by closing the connection."""
+        """Close and delete the test database before after test method in this class"""
+        
         self.connection.close()
         os.remove(TEST_DATABASE_FILEPATH)
+        print(Fore.RED + f"Test database: {TEST_DATABASE_FILEPATH} connection closed and deleted")
 
-    
     def test_create_pug(self):
         """Test to see if a pug row is successfully created in the database"""
 
-        test_pug = Pug("bob", "14", "San Francisco", "5:00 PM")
+        test_pug = Pug("Gary", "14", "San Francisco", "5:00 PM")
         test_pug.description = "Gary is the best pug."
         test_pug.image = "cute_pug.jpg"
 
         test_db = self.connection
         
-        test_results = PugDB.create_pug(test_db, test_pug)
+        PugDB.create_pug(test_db, test_pug)
 
-        blep = self.cursor.execute("SELECT * FROM pug").fetchall()
+        test_results = self.cursor.execute("SELECT * FROM pug WHERE NAME = 'Gary'").fetchone()
 
-        self.assertEqual(blep[0]["name"], "YASSS")  # Example assertion
+        self.assertEqual(test_results["name"], "Gary")
 
-    # def test_test(self):
-    #     """Example test: Fetch data from the test database."""
-    #     self.cursor.execute("SELECT * FROM pug").fetchall()
-    #     row = self.cursor.fetchone()
-    #     self.assertEqual(row["name"], "Test User")  # Example assertion
+    def test_create_pug_with_exception(self):
+        """Test to see if an IntegrityError is raised when attempting to create an existing pug"""
+
+        test_pug = Pug("Lily", "14", "San Francisco", "5:00 PM")
+        test_pug.description = "Lily is the cutest pug."
+        test_pug.image = "cute_pug.jpg"
+
+        test_db = self.connection
+
+        with self.assertRaises(Exception) as test_e:
+            PugDB.create_pug(test_db, test_pug)
+            self.assertEqual(type(test_e), self.connection.IntegrityError)
+
+
+    def test_get_grumble(self):
+        """Test to see if all the pugs are retrieved from the database"""
+
+        test_db = self.connection
+        
+        test_results = PugDB.get_grumble(test_db)
+
+        test_results = self.cursor.execute("SELECT * FROM pug").fetchall()
+
+        self.assertEqual(len(test_results), 2)
 
 
 
