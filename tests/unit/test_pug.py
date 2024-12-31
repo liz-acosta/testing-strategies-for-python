@@ -273,7 +273,9 @@ class TestPugDBWithMethodLevelFixtures(unittest.TestCase):
         """Create a test database before each test method in this class"""
 
         self.connection = sqlite3.connect(TEST_DATABASE_FILEPATH)
-        self.connection.row_factory = sqlite3.Row
+        self.connection.row_factory = (
+            sqlite3.Row
+        )
 
         test_pug_lily = Pug("Lily", "6", "San Francisco", "4:00 PM")
         test_pug_lily.description = "Lily is the best pug"
@@ -332,11 +334,9 @@ class TestPugDBWithMethodLevelFixtures(unittest.TestCase):
 
         PugDB.create_pug(test_db, test_pug)
 
-        test_results = (
-            self.connection.cursor()
-            .execute("SELECT * FROM pug WHERE NAME = 'Gary'")
-            .fetchone()
-        )
+        test_results = self.connection.cursor().execute(
+            "SELECT * FROM pug WHERE NAME = 'Gary'"
+        ).fetchone()
 
         self.assertEqual(test_results["name"], "Gary")
 
