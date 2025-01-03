@@ -11,6 +11,7 @@ flask-wtf = "*"
 python-dotenv = "*"
 openai = "*"
 requests = "*"
+colorama = "*"
 
 [dev-packages]
 
